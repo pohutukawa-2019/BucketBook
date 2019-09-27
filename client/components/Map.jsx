@@ -116,6 +116,7 @@ handleReset() {
         key={ geography.id } 
         geography={ geography } 
         projection={ projection } 
+        onClick={() => console.log(geography.properties.name)}
         style={{
           default: {
             fill: "#ECEFF1",
