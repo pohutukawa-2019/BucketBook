@@ -34,6 +34,15 @@ class Home extends React.Component {
           backgroundImage: `url(${res.body.results[random].urls.full})`
         }})
       })
+    if (this.state.style.backgroundImage === "") {
+      this.setState({style: {
+        backgroundSize: '100%, 100%',
+          backgroundPosition: 'center',
+          height: '100vh',
+          width: '100vw',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1547341220-3c11fb2e363f?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjkzNDQ2fQ)'
+      }})
+    }
   }
 
   handleClick = () => {
