@@ -3,11 +3,6 @@ import { GridForm, ColOne, ColTwo, Button } from './Styled'
 import { connect } from 'react-redux'
 import {register, isAuthenticated} from 'authenticare/client'
 
-
-// const isAuthenticated = () => false
-// const register = () => {}
-
-
 class SignUp extends Component {
 
   state = {
@@ -35,7 +30,6 @@ class SignUp extends Component {
   }
   
   render(props) {
-
     return (
       <div>
         <h2>Sign Up</h2>
