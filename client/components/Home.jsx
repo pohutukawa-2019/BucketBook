@@ -62,14 +62,13 @@ class Home extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    // backgroundImage: state.backgroundImage,
-    isAuthenticated: state.isAuthenticated
+    
   }
 }
 
 function mapDispatchToProps (dispatch) {
   return {
-    getBackgroundImage: () => dispatch(getBackgroundImage())
+    
   }
 }
 
