@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { GridForm, ColOne, ColTwo, Button } from './Styled'
 import { connect } from 'react-redux'
-import {signIn, isAuthenticated} from 'authenticare/client'
+import { signIn, isAuthenticated } from 'authenticare/client'
 
 class SignIn extends Component {
-
   state = {
     setForm: {
       username: '',
@@ -28,32 +27,32 @@ class SignIn extends Component {
         }
       })
   }
-  
-  render(props) {
+
+  render  (props) {
     return (
       <div>
         <h2>Sign in</h2>
-          <GridForm>
-            <ColOne>Username:</ColOne>
-            <ColTwo name='username'
-              // value={this.state.setForm.username}
-              placeholder='Username'
-              onChange={this.handleChange} />
+        <GridForm>
+          <ColOne>Username:</ColOne>
+          <ColTwo name='username'
+            // value={this.state.setForm.username}
+            placeholder='Username'
+            onChange={this.handleChange} />
 
-            <ColOne>Password:</ColOne>
-            <ColTwo name='password' type='password'
-              // value={this.state.setForm.password}
-              placeholder='Password'
-              onChange={this.handleChange} />
+          <ColOne>Password:</ColOne>
+          <ColTwo name='password' type='password'
+            // value={this.state.setForm.password}
+            placeholder='Password'
+            onChange={this.handleChange} />
 
-            <Button type='button' onClick={this.handleClick}>Sign in</Button>
-          </GridForm>
+          <Button type='button' onClick={this.handleClick}>Sign in</Button>
+        </GridForm>
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     form: {
       username: 'JAMES',
@@ -61,6 +60,5 @@ function mapStateToProps(state) {
     }
   }
 }
-
 
 export default connect(mapStateToProps)(SignIn)
