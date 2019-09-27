@@ -4,10 +4,19 @@
   "description": "React Redux with simple async action",
   "main": "server/index",
   "scripts": {
-    "dev": "nodemon --watch server & webpack --watch",
-    "test": "jest --watchAll",
-    "start": "node server",
-    "postinstall": "webpack"
+    "build": "webpack --config client/webpack.config.js",
+    "server": "run-s build start",
+    "start": "node .",
+    "test": "jest --verbose",
+    "test:watch": "jest --watchAll --verbose",
+    "dev": "run-p dev:server dev:client",
+    "dev:server": "nodemon .",
+    "dev:client": "webpack --config client/webpack.config.js --watch",
+    "knex": "knex --knexfile server/db/knexfile.js",
+    "db:reset": "run-s db:delete db:migrate db:seed",
+    "db:migrate": "npm run knex migrate:latest",
+    "db:seed": "npm run knex seed:run",
+    "db:delete": "rm -f server/db/dev.sqlite3"
   },
   "author": "EDA",
   "license": "ISC",
@@ -22,7 +31,10 @@
     ]
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "authenticare": "^0.4.5",
+    "express": "^4.17.1",
+    "knex": "^0.19.4",
+    "sqlite3": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -36,6 +48,7 @@
     "jest": "^24.8.0",
     "nock": "^10.0.6",
     "nodemon": "^1.19.1",
+    "npm-run-all": "^4.1.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
