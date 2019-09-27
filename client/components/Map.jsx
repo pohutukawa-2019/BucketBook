@@ -9,6 +9,8 @@ import {
   Marker
 } from "react-simple-maps"
 
+import { Motion, spring } from "react-motion"
+
 import {
   Tooltip,
   actions,
@@ -82,6 +84,19 @@ handleReset() {
       </div>
       <div style={wrapperStyles}>
         <p> TESTT</p>
+        <Motion
+          defaultStyle={{
+            zoom: 1,
+            x: 0,
+            y: 20,
+          }}
+          style={{
+            zoom: spring(this.state.zoom, {stiffness: 210, damping: 20}),
+            x: spring(this.state.center[0], {stiffness: 210, damping: 20}),
+            y: spring(this.state.center[1], {stiffness: 210, damping: 20}),
+          }}
+          >
+          {({zoom,x,y}) => (
         <ComposableMap
           projectionConfig={{
             scale: 205,
@@ -94,7 +109,7 @@ handleReset() {
             height: "auto",
           }}
         >
-  <ZoomableGroup center={this.state.center} zoom={this.state.zoom}>
+  <ZoomableGroup center={[x,y]} zoom={zoom}>
     <Geographies geography={ "/countries-110m.json" }>
       {(geographies, projection) => geographies.map(geography => (
         <Geography 
@@ -141,6 +156,8 @@ handleReset() {
               </Markers>
   </ZoomableGroup>
 </ComposableMap>
+)}
+      </Motion>
       </div>
       </div>
     )
