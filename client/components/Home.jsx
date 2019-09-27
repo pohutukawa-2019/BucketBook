@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom'
 
 import { fetchBackgroundImage } from '../api/fetchBackgroundImage'
 
+import Map from './Map'
+import SignIn from './SignIn'
+import SignUp from './SignUp'
+
 class Home extends React.Component {
   state = {
     style: {
@@ -52,6 +56,9 @@ class Home extends React.Component {
   render () {
     return(
       <div style={this.state.style}>
+        <Map />
+        <SignIn />
+        <SignUp />
         <h1>Welcome</h1>
         <h2>Start creating your travel bucket list today.</h2>
         <Link to='/signIn'><button className='ui button' onClick={this.handleClick}>SIGN IN</button></Link>

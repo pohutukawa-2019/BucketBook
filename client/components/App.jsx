@@ -2,7 +2,6 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import CountryPage from './CountryPage'
-import HomePage from './HomePage'
 import Home from './Home'
 import SignIn from './SignIn'
 
@@ -11,7 +10,7 @@ class App extends React.Component {
     return (
       <Router>
         <Switch>
-          <Route path="/" exact component={HomePage} />
+          <Route path='/' exact component={Home} />
           <Route exact path='/signIn' component={SignIn} />
           <Route path='/country/:selectedCountry' component={CountryPage} />
         </Switch>
