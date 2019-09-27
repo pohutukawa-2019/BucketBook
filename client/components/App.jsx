@@ -1,9 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import Map from './Map'
-import SignIn from './SignIn'
-import SignUp from './SignUp'
 import CountryPage from './CountryPage'
 import HomePage from './HomePage'
 

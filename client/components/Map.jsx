@@ -66,9 +66,6 @@ class Map extends Component {
   render() {
     return (
       <div className="div buttons-for-countries">
-        <div>
-          <Link to="/country">Click here</Link>
-        </div>
         <div style={wrapperStyles}>
           {
             this.state.countries.map((country, i) => (
@@ -122,10 +119,9 @@ class Map extends Component {
                           key={geography.id}
                           geography={geography}
                           projection={projection}
-                          onClick={() => {
-                            console.log(geography.properties.name)
+                          onClick={() => {geography.properties.name}
                             // this.router.navigate(['/country'])
-                          }}
+                          }
                           style={{
                             default: {
                               fill: "#ECEFF1",
