@@ -35,8 +35,7 @@ class SignIn extends Component {
       })
   }
   
-  render(props) {
-
+  render() {
     return (
       <div>
         <h2>Sign in</h2>
