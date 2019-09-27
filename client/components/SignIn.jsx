@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import { GridForm, ColOne, ColTwo, Button } from './Styled'
 import { connect } from 'react-redux'
 import {signIn, isAuthenticated} from 'authenticare/client'
+// import {signIn} from 'authenticare'
+
+
+// const isAuthenticated = () => true
+// const signIn = () => {}
+
 
 class SignIn extends Component {
 
@@ -29,7 +35,7 @@ class SignIn extends Component {
       })
   }
   
-  render(props) {
+  render() {
     return (
       <div>
         <h2>Sign in</h2>
