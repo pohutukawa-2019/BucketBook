@@ -1,26 +1,30 @@
 import React, { Component } from 'react'
 import { GridForm, ColOne, ColTwo, Button } from './Styled'
 import { connect } from 'react-redux'
+import {signIn, isAuthenticated} from 'authenticare/client'
+// import {signIn} from 'authenticare'
 
-const isAuthenticated = () => true
-const signIn = () => {}
+
+// const isAuthenticated = () => true
+// const signIn = () => {}
 
 
 class SignIn extends Component {
 
-  render(props) {
-
-  const handleChange = e => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value
-    })
+  state = {
+    setForm: {
+      username: '',
+      password: ''
+    }
   }
 
-  const handleClick = () => {
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value })
+}
+  handleClick = () => {
     signIn({
-      username: state.form.username,
-      password: state.form.password
+      username: this.state.setForm.username,
+      password: this.state.setForm.password
     }, {
       baseUrl: process.env.BASE_API_URL // see .env and webpack.config.js
     })
@@ -30,6 +34,8 @@ class SignIn extends Component {
         }
       })
   }
+  
+  render(props) {
 
     return (
       <div>
@@ -37,15 +43,17 @@ class SignIn extends Component {
           <GridForm>
             <ColOne>Username:</ColOne>
             <ColTwo name='username'
-              value={form.username}
-              onChange={handleChange} />
+              // value={this.state.setForm.username}
+              placeholder='Username'
+              onChange={this.handleChange} />
 
             <ColOne>Password:</ColOne>
             <ColTwo name='password' type='password'
-              value={form.password}
-              onChange={handleChange} />
+              // value={this.state.setForm.password}
+              placeholder='Password'
+              onChange={this.handleChange} />
 
-            <Button type='button' onClick={handleClick}>Sign in</Button>
+            <Button type='button' onClick={this.handleClick}>Sign in</Button>
           </GridForm>
       </div>
     )
@@ -55,8 +63,8 @@ class SignIn extends Component {
 function mapStateToProps(state) {
   return {
     form: {
-      username: '',
-      password: ''
+      username: 'JAMES',
+      password: 'sldfsdlk'
     }
   }
 }
