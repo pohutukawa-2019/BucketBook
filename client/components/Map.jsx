@@ -29,6 +29,7 @@ class Map extends Component {
   state = {
     center: [0,20],
     zoom: 1,
+    activeCountry: '',
     countries: [
       { name: "Andorra", coordinates: [1.601554,42.546245],  zoomTimes: 40 },
       { name: "United Arab Emirates", coordinates: [53.847818,23.424076],  zoomTimes: 4 },
@@ -68,16 +69,30 @@ handleReset() {
 
 handleZoomIn() {
   this.setState({
-    zoom: zoom+1,
+    // center: [0,20],
+    zoom: this.state.zoom+1,
   })
 }
 
 handleZoomOut() {
+  if(this.state.zoom !== 1){
   this.setState({
-    zoom: zoom-1,
-  })
+    // center: [0,20], 
+    zoom: this.state.zoom-1,
+  
+  })}
 }
 
+getCountryName(countryName) {
+  this.setState({
+    activeCountry: countryName,
+  })}
+
+  getAllCountryNamesgit (countryName) {
+    this.setState({
+      activeCountry: countryName,
+    })}
+  
 // handleMove(geography, evt) {
 //   const x = evt.clientX
 //   const y = evt.clientY + window.pageYOffset
@@ -97,6 +112,7 @@ handleZoomOut() {
     return (
       <div className="div buttons-for-countries">
       <div style={wrapperStyles}>
+    
         {
           this.state.countries.map((country, i) => (
             <button
@@ -113,6 +129,9 @@ handleZoomOut() {
         <button onClick={this.handleReset}>
           { "Reset" }
         </button>
+        <button onClick={() => this.handleZoomIn()} onClick={() => this.handleZoomIn()}>ZOOM IN</button>  
+        <button onClick={() => this.handleZoomOut()}>ZOOM OUT</button>
+        <h1>{this.state.activeCountry}</h1>
       </div>
       <div style={wrapperStyles}>
         <p> TESTT</p>
@@ -149,6 +168,7 @@ handleZoomOut() {
         geography={ geography } 
         projection={ projection } 
         onClick={() => console.log(geography.properties.name)}
+        onMouseEnter={() => this.getCountryName(geography.properties.name)}
         onMouseMove={this.handleMove}
         onMouseLeave={this.handleLeave}
         style={{
@@ -175,16 +195,7 @@ handleZoomOut() {
       ))}
     </Geographies>
     <Markers>
-                { <Marker marker={{ coordinates: [ 8.5, 47.3 ] }}>
-                    <button onClick={() => this.handleZoomIn()}>ZOOM IN</button>
-                    
-                </Marker>}
-
-                < Marker marker={{ coordinates: [ 8.5, 47.3 ] }}>
-                <button onClick={() => this.handleZoomOut()>ZOOM OUT </button>
-// ISSUES HERE!!!
-                </Marker>
-                  this.state.countries.map((country, i) => (
+              {this.state.countries.map((country, i) => (
                     <Marker key={i} marker={country}>
                       <circle
                         cx={0}
@@ -195,15 +206,15 @@ handleZoomOut() {
                         stroke="#03fcf8"
                       />
                     </Marker>
-                  ))
-                }
+                  ))}
+                
               </Markers>
   </ZoomableGroup>
 </ComposableMap>
 )}
 
       </Motion>
-      {/* <Tooltip/> */}
+
       </div>
       </div>
     )
