@@ -120,19 +120,19 @@ handleReset() {
           default: {
             fill: "#ECEFF1",
             stroke: "#607D8B",
-            strokeWidth: 0.2,
+            strokeWidth: 0.5,
             outline: "none",
           },
           hover: {
             fill: "#607D8B",
             stroke: "#607D8B",
-            strokeWidth: 0.2,
+            strokeWidth: 0.5,
             outline: "none",
           },
           pressed: {
             fill: "#FF5722",
             stroke: "#607D8B",
-            strokeWidth: 0.2,
+            strokeWidth: 2.2,
             outline: "none",
           }}} 
           />
