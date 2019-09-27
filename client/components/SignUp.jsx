@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { GridForm, ColOne, ColTwo, Button } from './Styled'
 import { connect } from 'react-redux'
-import {signIn, isAuthenticated} from 'authenticare/client'
+import {register, isAuthenticated} from 'authenticare/client'
 
-class SignIn extends Component {
+class SignUp extends Component {
 
   state = {
     setForm: {
@@ -16,7 +16,7 @@ class SignIn extends Component {
     this.setState({ [e.target.name]: e.target.value })
 }
   handleClick = () => {
-    signIn({
+    register({
       username: this.state.setForm.username,
       password: this.state.setForm.password
     }, {
@@ -29,10 +29,10 @@ class SignIn extends Component {
       })
   }
   
-  render() {
+  render(props) {
     return (
       <div>
-        <h2>Sign in</h2>
+        <h2>Sign Up</h2>
           <GridForm>
             <ColOne>Username:</ColOne>
             <ColTwo name='username'
@@ -63,4 +63,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps)(SignIn)
+export default connect(mapStateToProps)(SignUp)
