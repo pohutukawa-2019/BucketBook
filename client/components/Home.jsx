@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 import Map from './Map'
+import Searchbar from './Searchbar'
 
 import { fetchBackgroundImage } from '../api/fetchBackgroundImage'
 
@@ -62,7 +63,8 @@ class Home extends React.Component {
             <Link to='/signIn'><button className='ui button' onClick={this.handleClick}>SIGN IN</button></Link>
           </IfNotAuthenticated>
           <IfAuthenticated>
-            <div style={{width: '70vw', float: 'right', backgroundColor: 'rgba(0, 0, 0, 0.2)', borderRadius: '15px'}}>
+            <div style={{width: '70vw', backgroundColor: 'rgba(0, 0, 0, 0.4)', borderRadius: '15px'}}>
+              <Searchbar />              
               <Map />
             </div>
           </IfAuthenticated>

@@ -24,7 +24,7 @@ class Map extends Component {
     listOfCountries: [],
     center: [0,20],
     zoom: 1,
-    activeCountry: '',
+    activeCountry: 'Where would you like to go?',
     countries: [
       { name: "Andorra", coordinates: [1.601554,42.546245],  zoomTimes: 40 },
       { name: "United Arab Emirates", coordinates: [53.847818,23.424076],  zoomTimes: 4 },
@@ -92,7 +92,7 @@ getCountryName(countryName) {
           </button>
           <button onClick={() => this.handleZoomIn()} onClick={() => this.handleZoomIn()}>ZOOM IN</button>     
           <button onClick={() => this.handleZoomOut()}>ZOOM OUT</button>
-          <h1>{this.state.activeCountry}</h1>
+          <h1 style={{color: 'white'}}>{this.state.activeCountry}</h1>
         </div>
         <div style={wrapperStyles}>
           <Motion
@@ -131,6 +131,7 @@ getCountryName(countryName) {
                           projection={ projection } 
                           countries={this.state.listOfCountries.push(geography.properties.name)}
                           onMouseEnter={() => this.getCountryName(geography.properties.name)}
+                          onMouseOut={() => this.setState({activeCountry: 'Where Next?'})}
                           onMouseMove={this.handleMove}
                           onMouseLeave={this.handleLeave}
                           style={{
@@ -143,8 +144,8 @@ getCountryName(countryName) {
                             },
                             hover: {
                               fill: "#f7b731",
-                              stroke: "#607D8B",
-                              strokeWidth: 0.1,
+                              stroke: "#FFF",
+                              strokeWidth: 0.8,
                               outline: "none",
                             },
                             pressed: {
@@ -158,20 +159,6 @@ getCountryName(countryName) {
                       </Link>
                     ))}
                   </Geographies>
-                  <Markers>
-                    {this.state.countries.map((country, i) => (
-                      <Marker key={i} marker={country}>
-                        <circle
-                          cx={0}
-                          cy={0}
-                          r={6}
-                          fill="#03fc35"
-                          opacity="0.4"
-                          stroke="#03fcf8"
-                        />
-                      </Marker>
-                    ))}
-                  </Markers>
                 </ZoomableGroup>
               </ComposableMap>
             )}
