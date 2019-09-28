@@ -133,7 +133,6 @@ getCountryName(countryName) {
                           onMouseEnter={() => this.getCountryName(geography.properties.name)}
                           onMouseMove={this.handleMove}
                           onMouseLeave={this.handleLeave}
-                          onClick={() => {geography.properties.name}}
                           style={{
                             default: {
                               fill: "#ECEFF1",
