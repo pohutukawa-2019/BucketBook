@@ -1,15 +1,22 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import _ from 'lodash'
 import { connect } from 'react-redux'
-import { Search, Grid, Header, Segment } from 'semantic-ui-react'
+import { Search, Grid, Header, Segment, Label } from 'semantic-ui-react'
 import searchData from '../../public/searchData'
 
 const initialState = { isLoading: false, results: [], value: '' }
 
+const resultRenderer = ({ title }) => <Label content={title} />
+
+resultRenderer.propTypes = {
+  title: PropTypes.string,
+}
+
 class Searchbar extends Component {
   state = initialState
 
-  handleResultSelect = (e, { result }) => this.setState({ value: result.value })
+  handleResultSelect = (e, { result }) => this.setState({ value: result.title })
 
   handleSearchChange = (e, { value }) => {
     this.setState({ isLoading: true, value })
@@ -18,7 +25,7 @@ class Searchbar extends Component {
       if (this.state.value.length < 1) return this.setState(initialState)
 
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
-      const isMatch = (result) => re.test(result.value)
+      const isMatch = (result) => re.test(result.title)
 
       this.setState({
         isLoading: false,
@@ -41,6 +48,7 @@ class Searchbar extends Component {
             })}
             results={results}
             value={value}
+            resultRenderer={resultRenderer}
             {...this.props}
           />
         </Grid.Column>
