@@ -6,8 +6,8 @@ router.use(express.json())
 
 router.get('/', (req, res) => {
   res.send('HELLO WORLD')
-  //   db.getBucketListItemsByCountry(selectedCountry, id)
-  //     .then(items => res.status(200).json(items))
+    db.getBucketListItems()
+      .then(items => res.status(200).json(items))
 })
 
 

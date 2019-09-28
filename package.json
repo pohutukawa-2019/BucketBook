@@ -2,6 +2,7 @@
   "name": "boilerplate-redux-async",
   "version": "0.1.1",
   "description": "React Redux with simple async action",
+  "repository": "https://github.com/pohutukawa-2019/BucketBook",
   "main": "server/index",
   "scripts": {
     "build": "webpack --config webpack.config.js",
