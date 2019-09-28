@@ -73,110 +73,110 @@ getCountryName(countryName) {
   render() {
     return (
       <div className="div buttons-for-countries">
-      <div style={wrapperStyles}>
-        {
-          this.state.countries.map((country, i) => (
-            <button
-              key={i}
-              className="btn px1"
-              data-country={i}
-              onClick={this.handleCountrySelection}
+        <div style={wrapperStyles}>
+          {
+            this.state.countries.map((country, i) => (
+              <button
+                key={i}
+                className="btn px1"
+                data-country={i}
+                onClick={this.handleCountrySelection}
               >
-              { country.name }
-            </button>
-          ))
-        }
-        <button onClick={this.handleReset}>
-          { "Reset" }
-        </button>
-        <button onClick={() => this.handleZoomIn()} onClick={() => this.handleZoomIn()}>ZOOM IN</button>     
-        <button onClick={() => this.handleZoomOut()}>ZOOM OUT</button>
-        <h1>{this.state.activeCountry}</h1>
-      </div>
-       <div style={wrapperStyles}>
-        <Motion
-          defaultStyle={{
-            zoom: 1,
-            x: 0,
-            y: 20,
-          }}
-          style={{
-            zoom: spring(this.state.zoom, {stiffness: 210, damping: 20}),
-            x: spring(this.state.center[0], {stiffness: 210, damping: 20}),
-            y: spring(this.state.center[1], {stiffness: 210, damping: 20}),
-          }}
+                { country.name }
+              </button>
+            ))
+          }
+          <button onClick={this.handleReset}>
+            { "Reset" }
+          </button>
+          <button onClick={() => this.handleZoomIn()} onClick={() => this.handleZoomIn()}>ZOOM IN</button>     
+          <button onClick={() => this.handleZoomOut()}>ZOOM OUT</button>
+          <h1>{this.state.activeCountry}</h1>
+        </div>
+        <div style={wrapperStyles}>
+          <Motion
+            defaultStyle={{
+              zoom: 1,
+              x: 0,
+              y: 20,
+            }}
+            style={{
+              zoom: spring(this.state.zoom, {stiffness: 210, damping: 20}),
+              x: spring(this.state.center[0], {stiffness: 210, damping: 20}),
+              y: spring(this.state.center[1], {stiffness: 210, damping: 20}),
+            }}
           >
-          {({zoom,x,y}) => (
-        <ComposableMap
-          projectionConfig={{
-            scale: 205,
-            rotation: [-11,0,0],
-          }}
-          width={980}
-          height={551}
-          style={{
-            width: "100%",
-            height: "auto",
-          }}
-        >
-  <ZoomableGroup center={[x,y]} zoom={zoom}>
-    <Geographies geography={ "/countries-50m.json" }>
+            {({zoom,x,y}) => (
+              <ComposableMap
+                projectionConfig={{
+                  scale: 205,
+                  rotation: [-11,0,0],
+                }}
+                width={980}
+                height={551}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+              >
+                <ZoomableGroup center={[x,y]} zoom={zoom}>
+                  <Geographies geography={ "/countries-50m.json" }>
 
-      {(geographies, projection) => geographies.map(geography => (
-        <Geography 
-        key={ `heyMAMA${geography.properties.name}` } 
-        geography={ geography } 
-        projection={ projection } 
-        countries={this.state.listOfCountries.push(geography.properties.name)}
-        onMouseEnter={() => this.getCountryName(geography.properties.name)}
-        onMouseMove={this.handleMove}
-        onMouseLeave={this.handleLeave}
-        style={{
-          default: {
-            fill: "#ECEFF1",
-            fillOpacity: 0,
-            stroke: "#000",
-            strokeWidth: 0.4,
-            outline: "none",
-          },
-          hover: {
-            fill: "#607D8B",
-            stroke: "#607D8B",
-            strokeWidth: 0.1,
-            outline: "none",
-          },
-          pressed: {
-            fill: "#FF5722",
-            stroke: "#607D8B",
-            strokeWidth: 0.1,
-            outline: "none",
-          }}} 
-          />
-      ))}
-    </Geographies>
-    <Markers>
-              {this.state.countries.map((country, i) => (
-                    <Marker key={i} marker={country}>
-                      <circle
-                        cx={0}
-                        cy={0}
-                        r={6}
-                        fill="#03fc35"
-                        opacity="0.4"
-                        stroke="#03fcf8"
+                    {(geographies, projection) => geographies.map(geography => (
+                      <Geography 
+                        key={ `heyMAMA${geography.properties.name}` } 
+                        geography={ geography } 
+                        projection={ projection } 
+                        countries={this.state.listOfCountries.push(geography.properties.name)}
+                        onMouseEnter={() => this.getCountryName(geography.properties.name)}
+                        onMouseMove={this.handleMove}
+                        onMouseLeave={this.handleLeave}
+                        style={{
+                          default: {
+                            fill: "#ECEFF1",
+                            fillOpacity: 0,
+                            stroke: "#000",
+                            strokeWidth: 0.4,
+                            outline: "none",
+                          },
+                          hover: {
+                            fill: "#607D8B",
+                            stroke: "#607D8B",
+                            strokeWidth: 0.1,
+                            outline: "none",
+                          },
+                          pressed: {
+                            fill: "#FF5722",
+                            stroke: "#607D8B",
+                            strokeWidth: 0.1,
+                            outline: "none",
+                          }
+                        }}
                       />
-                    </Marker>
-                  ))}
-                
-              </Markers>
-  </ZoomableGroup>
-</ComposableMap>
-)}
-      </Motion>
-      </div>
+                    ))}
+                  </Geographies>
+                  <Markers>
+                    {this.state.countries.map((country, i) => (
+                      <Marker key={i} marker={country}>
+                        <circle
+                          cx={0}
+                          cy={0}
+                          r={6}
+                          fill="#03fc35"
+                          opacity="0.4"
+                          stroke="#03fcf8"
+                        />
+                      </Marker>
+                    ))}
+                  </Markers>
+                </ZoomableGroup>
+              </ComposableMap>
+            )}
+          </Motion>
+        </div>
       </div>
     )
   }
 }
- 
-export default Map 
+
+export default Map
