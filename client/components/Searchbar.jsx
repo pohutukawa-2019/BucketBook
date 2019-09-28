@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { Search, Grid, Header, Segment, Label } from 'semantic-ui-react'
 import searchData from '../../public/searchData'
 
 const initialState = { isLoading: false, results: [], value: '' }
 
-const resultRenderer = ({ title }) => <Label content={title} />
+const resultRenderer = ({ title }) => <Link to={`/country/${title}`}><Label content={title} /></Link>
 
 resultRenderer.propTypes = {
   title: PropTypes.string,
