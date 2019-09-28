@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-
+import SearchBar from './SearchBar'
+import Search from 'react-search'
 import {
   ComposableMap,
   ZoomableGroup,
@@ -27,6 +28,7 @@ const { show, hide } = actions
 
 class Map extends Component {
   state = {
+    listOfCountries: [],
     center: [0,20],
     zoom: 1,
     activeCountry: '',
@@ -88,10 +90,7 @@ getCountryName(countryName) {
     activeCountry: countryName,
   })}
 
-  getAllCountryNamesgit (countryName) {
-    this.setState({
-      activeCountry: countryName,
-    })}
+
   
 // handleMove(geography, evt) {
 //   const x = evt.clientX
@@ -111,6 +110,7 @@ getCountryName(countryName) {
   render() {
     return (
       <div className="div buttons-for-countries">
+        <SearchBar countries={this.state.listOfCountries}/> 
       <div style={wrapperStyles}>
     
         {
@@ -130,11 +130,11 @@ getCountryName(countryName) {
           { "Reset" }
         </button>
         <button onClick={() => this.handleZoomIn()} onClick={() => this.handleZoomIn()}>ZOOM IN</button>  
+      
         <button onClick={() => this.handleZoomOut()}>ZOOM OUT</button>
         <h1>{this.state.activeCountry}</h1>
       </div>
-      <div style={wrapperStyles}>
-        <p> TESTT</p>
+       <div style={wrapperStyles}>
         <Motion
           defaultStyle={{
             zoom: 1,
@@ -162,12 +162,14 @@ getCountryName(countryName) {
         >
   <ZoomableGroup center={[x,y]} zoom={zoom}>
     <Geographies geography={ "/countries-50m.json" }>
+
       {(geographies, projection) => geographies.map(geography => (
         <Geography 
         key={ geography.id } 
         geography={ geography } 
         projection={ projection } 
-        onClick={() => console.log(geography.properties.name)}
+        countries={this.state.listOfCountries.push(geography.properties.name)}
+        onClick={() => console.log(this.state.listOfCountries)}
         onMouseEnter={() => this.getCountryName(geography.properties.name)}
         onMouseMove={this.handleMove}
         onMouseLeave={this.handleLeave}
