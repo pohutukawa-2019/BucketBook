@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom"
 
 import {
   ComposableMap,
@@ -123,36 +124,39 @@ getCountryName(countryName) {
                   <Geographies geography={ "/countries-50m.json" }>
 
                     {(geographies, projection) => geographies.map(geography => (
-                      <Geography 
-                        key={ `heyMAMA${geography.properties.name}` } 
-                        geography={ geography } 
-                        projection={ projection } 
-                        countries={this.state.listOfCountries.push(geography.properties.name)}
-                        onMouseEnter={() => this.getCountryName(geography.properties.name)}
-                        onMouseMove={this.handleMove}
-                        onMouseLeave={this.handleLeave}
-                        style={{
-                          default: {
-                            fill: "#ECEFF1",
-                            fillOpacity: 0,
-                            stroke: "#000",
-                            strokeWidth: 0.4,
-                            outline: "none",
-                          },
-                          hover: {
-                            fill: "#607D8B",
-                            stroke: "#607D8B",
-                            strokeWidth: 0.1,
-                            outline: "none",
-                          },
-                          pressed: {
-                            fill: "#FF5722",
-                            stroke: "#607D8B",
-                            strokeWidth: 0.1,
-                            outline: "none",
-                          }
-                        }}
-                      />
+                      <Link key={geography.id} to={`/country/${geography.properties.name}`}>
+                        <Geography
+                          key={ `A${geography.properties.name}` } 
+                          geography={ geography } 
+                          projection={ projection } 
+                          countries={this.state.listOfCountries.push(geography.properties.name)}
+                          onMouseEnter={() => this.getCountryName(geography.properties.name)}
+                          onMouseMove={this.handleMove}
+                          onMouseLeave={this.handleLeave}
+                          onClick={() => {geography.properties.name}}
+                          style={{
+                            default: {
+                              fill: "#ECEFF1",
+                              fillOpacity: 0,
+                              stroke: "#000",
+                              strokeWidth: 0.4,
+                              outline: "none",
+                            },
+                            hover: {
+                              fill: "#607D8B",
+                              stroke: "#607D8B",
+                              strokeWidth: 0.1,
+                              outline: "none",
+                            },
+                            pressed: {
+                              fill: "#FF5722",
+                              stroke: "#607D8B",
+                              strokeWidth: 0.1,
+                              outline: "none",
+                            }
+                          }}
+                        />
+                      </Link>
                     ))}
                   </Geographies>
                   <Markers>

@@ -1,15 +1,22 @@
 import React from 'react'
-import Map from './Map'
-import SignIn from './SignIn'
-import SignUp from './SignUp'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-const App = () => (
-  <div className='app'>
-    <h1>BucketBook</h1>
-    <Map />
-    <SignIn /> 
-    <SignUp />
-  </div>
-)
+import CountryPage from './CountryPage'
+import Home from './Home'
+import SignIn from './SignIn'
+
+class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route path='/' exact component={Home} />
+          <Route exact path='/signIn' component={SignIn} />
+          <Route path='/country/:selectedCountry' component={CountryPage} />
+        </Switch>
+      </Router>
+    )
+  }
+}
 
 export default App
