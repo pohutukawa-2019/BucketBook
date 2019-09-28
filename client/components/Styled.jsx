@@ -19,3 +19,4 @@ export const Button = styled.button`
   grid-column: 2;
   width: 50%;
 `
+
