@@ -65,7 +65,7 @@ class Home extends React.Component {
           </IfNotAuthenticated>
           <IfAuthenticated>
             <div style={{width: '90vw', height: '85vh', backgroundColor: 'rgba(0, 0, 0, 0.4)', borderRadius: '15px 15px 0px 0px', position: 'relative', left: '5vw', top: '8vh'}}>
-              {/* <Searchbar />*/}
+              {/* <Searchbar /> */}
               <Map />
             </div>
             <Footer />
