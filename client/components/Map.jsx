@@ -137,12 +137,12 @@ getCountryName(countryName) {
                             default: {
                               fill: "#ECEFF1",
                               fillOpacity: 0,
-                              stroke: "#000",
-                              strokeWidth: 0.4,
+                              stroke: "#FFF",
+                              strokeWidth: 0.8,
                               outline: "none",
                             },
                             hover: {
-                              fill: "#607D8B",
+                              fill: "#f7b731",
                               stroke: "#607D8B",
                               strokeWidth: 0.1,
                               outline: "none",

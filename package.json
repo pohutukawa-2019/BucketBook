@@ -40,6 +40,9 @@
     "react-search": "^2.1.1",
     "react-router-dom": "^5.1.0",
     "react-simple-maps": "^0.12.1",
+    "redux-tooltip": "^0.7.2",
+    "semantic-ui": "^2.4.2",
+    "semantic-ui-react": "^0.88.1",
     "sqlite3": "^4.1.0",
     "styled-components": "^4.4.0"
   },
