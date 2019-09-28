@@ -63,8 +63,8 @@ class Home extends React.Component {
             <Link to='/signIn'><button className='ui button' onClick={this.handleClick}>SIGN IN</button></Link>
           </IfNotAuthenticated>
           <IfAuthenticated>
-            <div style={{width: '70vw', backgroundColor: 'rgba(0, 0, 0, 0.4)', borderRadius: '15px'}}>
-              <Searchbar />              
+            <div style={{width: '70vw', backgroundColor: 'rgba(0, 0, 0, 0.4)', borderRadius: '15px', position: 'relative', left: '15vw', top: '5vh'}}>
+              {/* <Searchbar />*/}
               <Map />
             </div>
           </IfAuthenticated>

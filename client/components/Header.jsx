@@ -16,13 +16,14 @@ state = {
     const { activeItem } = this.state
 
     return (
-      <div>
+      <div style={{backgroundColor: 'rgba(75, 113, 210, 0.5)'}}>
         <Menu pointing secondary>
           <Menu.Menu position='left'>
             <Link to='/'><Menu.Item
             name='home'
             active={activeItem === 'home'}
             onClick={this.handleItemClick}
+            style={{color: 'white'}}
             /></Link>
           </Menu.Menu>
           <Menu.Menu position='right'>
@@ -31,6 +32,7 @@ state = {
                 name='sign out'
                 active={activeItem === 'sign out'}
                 onClick={logOff}
+                style={{color: 'white'}}
               /></Link>
             </IfAuthenticated>
             <IfNotAuthenticated>
@@ -38,6 +40,7 @@ state = {
             name='sign up'
             active={activeItem === 'sign up'}
             onClick={this.handleItemClick}
+            style={{color: 'white'}}
             /></Link>
             </IfNotAuthenticated>
           </Menu.Menu>
