@@ -12,7 +12,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Header />
+          <Route path='/' component={Header} />
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/signIn' component={SignIn} />
