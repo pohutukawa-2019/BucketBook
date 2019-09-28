@@ -37,9 +37,9 @@
     "express": "^4.17.1",
     "knex": "^0.19.4",
     "react-motion": "^0.5.2",
+    "react-search": "^2.1.1",
     "react-router-dom": "^5.1.0",
     "react-simple-maps": "^0.12.1",
-    "redux-tooltip": "^0.7.2",
     "sqlite3": "^4.1.0",
     "styled-components": "^4.4.0"
   },
