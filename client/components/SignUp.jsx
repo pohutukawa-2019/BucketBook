@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { GridForm, ColOne, ColTwo, Button } from './Styled'
 import { connect } from 'react-redux'
 import { register, isAuthenticated } from 'authenticare/client'
@@ -7,7 +7,7 @@ import { register, isAuthenticated } from 'authenticare/client'
 // const isAuthenticated = () => false
 // const register = () => {}
 
-class SignUp extends Component {
+class SignUp extends React.Component {
   state = {
     username: '',
     password: ''
@@ -31,7 +31,7 @@ class SignUp extends Component {
       })
   }
 
-  render (props) {
+  render () {
     return (
       <div>
         <h2>Sign Up</h2>

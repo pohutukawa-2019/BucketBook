@@ -30,7 +30,7 @@ class SignIn extends Component {
   render () {
     return (
       <div>
-        <h2>Sign in</h2>
+        <h2>Sign In</h2>
         <GridForm>
           <ColOne>Username:</ColOne>
           <ColTwo name='username'

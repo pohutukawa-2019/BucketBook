@@ -1,6 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
+
+import Map from './Map'
 
 import { fetchBackgroundImage } from '../api/fetchBackgroundImage'
 
@@ -51,11 +54,20 @@ class Home extends React.Component {
 
   render () {
     return(
-      <div style={this.state.style}>
-        <h1>Welcome</h1>
-        <h2>Start creating your travel bucket list today.</h2>
-        <Link to='/signIn'><button className='ui button' onClick={this.handleClick}>SIGN IN</button></Link>
-      </div>
+      
+        <div style={this.state.style}>
+          <IfNotAuthenticated>
+            <h1>Welcome</h1>
+            <h2>Start creating your travel bucket list today.</h2>
+            <Link to='/signIn'><button className='ui button' onClick={this.handleClick}>SIGN IN</button></Link>
+          </IfNotAuthenticated>
+          <IfAuthenticated>
+            <div style={{width: '70vw', float: 'right'}}>
+              <Map />
+            </div>
+          </IfAuthenticated>
+        </div>
+      
     )
   }
 }

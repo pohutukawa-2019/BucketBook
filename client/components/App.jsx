@@ -6,6 +6,7 @@ import Header from './Header'
 import CountryPage from './CountryPage'
 import Home from './Home'
 import SignIn from './SignIn'
+import SignUp from './SignUp'
 
 class App extends React.Component {
   render() {
@@ -14,7 +15,8 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route path='/' exact component={Home} />
-          <Route exact path='/signIn' component={SignIn} />
+          <Route path='/signIn' component={SignIn} />
+          <Route path='/signUp' component={SignUp} />
           <Route path='/country/:selectedCountry' component={CountryPage} />
         </Switch>
       </Router>
