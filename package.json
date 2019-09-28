@@ -38,7 +38,6 @@
     "react-motion": "^0.5.2",
     "react-search": "^2.1.1",
     "react-simple-maps": "^0.12.1",
-    "redux-tooltip": "^0.7.2",
     "sqlite3": "^4.1.0",
     "styled-components": "^4.4.0"
   },
