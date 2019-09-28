@@ -3,6 +3,8 @@ import { GridForm, ColOne, ColTwo, Button } from './Styled'
 import { connect } from 'react-redux'
 import { signIn, isAuthenticated } from 'authenticare/client'
 
+import Footer from './Footer'
+
 class SignIn extends Component {
   state = {
     username: '',
@@ -46,6 +48,7 @@ class SignIn extends Component {
 
           <Button type='button' onClick={this.handleClick}>Sign in</Button>
         </GridForm>
+        <Footer />
       </div>
     )
   }

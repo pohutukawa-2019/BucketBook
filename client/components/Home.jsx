@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 import Map from './Map'
+import Footer from './Footer'
 import Searchbar from './Searchbar'
 
 import { fetchBackgroundImage } from '../api/fetchBackgroundImage'
@@ -63,10 +64,11 @@ class Home extends React.Component {
             <Link to='/signIn'><button className='ui button' onClick={this.handleClick}>SIGN IN</button></Link>
           </IfNotAuthenticated>
           <IfAuthenticated>
-            <div style={{width: '70vw', backgroundColor: 'rgba(0, 0, 0, 0.4)', borderRadius: '15px', position: 'relative', left: '15vw', top: '5vh'}}>
+            <div style={{width: '90vw', height: '85vh', backgroundColor: 'rgba(0, 0, 0, 0.4)', borderRadius: '15px 15px 0px 0px', position: 'relative', left: '5vw', top: '8vh'}}>
               {/* <Searchbar />*/}
               <Map />
             </div>
+            <Footer />
           </IfAuthenticated>
         </div>
       

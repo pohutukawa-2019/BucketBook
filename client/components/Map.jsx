@@ -5,9 +5,7 @@ import {
   ComposableMap,
   ZoomableGroup,
   Geographies,
-  Geography,
-  Markers,
-  Marker
+  Geography
 } from "react-simple-maps"
 
 import { Motion, spring } from "react-motion"

@@ -3,6 +3,7 @@ import { GridForm, ColOne, ColTwo, Button } from './Styled'
 import { connect } from 'react-redux'
 import { register, isAuthenticated } from 'authenticare/client'
 
+import Footer from './Footer'
 
 // const isAuthenticated = () => false
 // const register = () => {}
@@ -50,6 +51,7 @@ class SignUp extends React.Component {
 
           <Button type='button' onClick={this.handleClick}>Sign in</Button>
         </GridForm>
+        <Footer />
       </div>
     )
   }
