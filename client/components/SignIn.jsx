@@ -5,25 +5,24 @@ import { signIn, isAuthenticated } from 'authenticare/client'
 
 class SignIn extends Component {
   state = {
-    setForm: {
-      username: '',
-      password: ''
-    }
+    username: '',
+    password: ''
   }
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
-}
+  }
+
   handleClick = () => {
     signIn({
-      username: this.state.setForm.username,
-      password: this.state.setForm.password
+      username: this.state.username,
+      password: this.state.password
     }, {
       baseUrl: process.env.BASE_API_URL // see .env and webpack.config.js
     })
       .then((token) => {
         if (isAuthenticated()) {
-          props.history.push('/')
+          this.props.history.push('/')
         }
       })
   }

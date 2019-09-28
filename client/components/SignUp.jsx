@@ -7,13 +7,10 @@ import { register, isAuthenticated } from 'authenticare/client'
 // const isAuthenticated = () => false
 // const register = () => {}
 
-
 class SignUp extends Component {
   state = {
-    setForm: {
-      username: '',
-      password: ''
-    }
+    username: '',
+    password: ''
   }
 
   handleChange = (e) => {
@@ -22,8 +19,8 @@ class SignUp extends Component {
 
   handleClick = () => {
     register({
-      username: this.state.setForm.username,
-      password: this.state.setForm.password
+      username: this.state.username,
+      password: this.state.password
     }, {
       baseUrl: process.env.BASE_API_URL // see .env and webpack.config.js
     })
