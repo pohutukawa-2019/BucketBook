@@ -6,12 +6,46 @@ import { signIn, isAuthenticated } from 'authenticare/client'
 import Header from './Header'
 import Footer from './Footer'
 
+import { fetchBackgroundImage } from '../api/fetchBackgroundImage'
+
 class SignIn extends Component {
   state = {
     username: '',
-    password: ''
+    password: '',
+    style: {
+      backgroundImage: ''
+    }
   }
 
+  randomPhoto = (min, max) => {
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min)) + min
+  }
+
+  componentDidMount () {
+    const random = this.randomPhoto(1, 10)
+    fetchBackgroundImage()
+      .then(res => {
+        this.setState({style: {
+          backgroundSize: '100%, 100%',
+          backgroundPosition: 'center',
+          height: '100vh',
+          width: '100vw',
+          backgroundImage: `url(${res.body.results[random].urls.full})`
+        }})
+      })
+    if (this.state.style.backgroundImage === "") {
+      this.setState({style: {
+        backgroundSize: '100%, 100%',
+          backgroundPosition: 'center',
+          height: '100vh',
+          width: '100vw',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1544945582-052b29cd29e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1488&q=80)'
+      }})
+    }
+  }
+  
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
@@ -21,7 +55,7 @@ class SignIn extends Component {
       username: this.state.username,
       password: this.state.password
     }, {
-      baseUrl: process.env.BASE_API_URL // see .env and webpack.config.js
+      baseUrl: process.env.BASE_API_URL
     })
       .then((token) => {
         if (isAuthenticated()) {
@@ -30,23 +64,51 @@ class SignIn extends Component {
       })
   }
 
+  gridStyle = {
+    backgroundColor: 'rgba(30, 113, 128, 0.80)',
+    position: 'relative',
+    left: '30vw',
+    width: '40vw',
+    color: 'white',
+    borderRadius: '15px',
+    height: '70vh'
+  }
+
   render () {
     return (
-      <div>
+      <div style={this.state.style}>
         <Header />
-        <h2>Sign In</h2>
-        <GridForm>
-          <ColOne>Username:</ColOne>
+        <h2 style={{color: 'white'}}>Sign In</h2>
+        <GridForm style={this.gridStyle}>
           <ColTwo name='username'
-            // value={this.state.setForm.username}
             placeholder='Username'
-            onChange={this.handleChange} />
+            onChange={this.handleChange}
+            style={{
+              width: '35vw',
+              height: '5vh',
+              fontFamily: 'Montserrat, sans-serif',
+              backgroundColor: 'rgba(0, 0, 0, 0)',
+              borderWidth: '0px', 
+              color: 'white',
+              borderBottomWidth: '1px',
+              borderBottomColor: 'white'
+            }}
+            />
 
-          <ColOne>Password:</ColOne>
           <ColTwo name='password' type='password'
-            // value={this.state.setForm.password}
             placeholder='Password'
-            onChange={this.handleChange} />
+            onChange={this.handleChange}
+            style={{
+              width: '35vw',
+              height: '5vh',
+              fontFamily: 'Montserrat, sans-serif',
+              backgroundColor: 'rgba(0, 0, 0, 0)',
+              borderWidth: '0px', 
+              color: 'white',
+              borderBottomWidth: '1px',
+              borderBottomColor: 'white'
+            }}
+            />
 
           <Button type='button' onClick={this.handleClick}>Sign in</Button>
         </GridForm>
