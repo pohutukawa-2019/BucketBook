@@ -63,7 +63,7 @@ class Home extends React.Component {
           <IfNotAuthenticated>
             <h1 style={{color: 'white', fontFamily: 'Montserrat, sans-serif', fontSize: '100px', fontWeight: '300', position: 'relative', top: '23vh', left: '35vw'}}>Welcome</h1>
             <h2 style={{color: 'white', fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: '100', position: 'relative', top: '19vh', left: '37vw'}}>Start creating your travel bucket list today</h2>
-            <Link to='/login'><button className='ui button' onClick={this.handleClick} style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', backgroundColor: 'orange', color: 'white', fontWeight: '100', width: '13vw', height: '6vh', position: 'relative', top: '21vh', left: '42vw' }}>SIGN IN</button></Link>
+            <Link to='/login'><button className='ui button' onClick={this.handleClick} style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', backgroundColor: 'orange', color: 'white', fontWeight: '100', width: '13vw', height: '6vh', position: 'relative', top: '21vh' }}>SIGN IN</button></Link>
           </IfNotAuthenticated>
           <IfAuthenticated>
             <div style={{width: '90vw', height: '85vh', backgroundColor: 'rgba(30, 113, 128, 0.80)', borderRadius: '15px 15px 0px 0px', position: 'relative', left: '5vw', top: '8vh'}}>
