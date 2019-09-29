@@ -74,7 +74,7 @@ getCountryName(countryName) {
   render() {
     return (
       <div className="div buttons-for-countries">
-        <div style={{float: 'right', position: 'relative', right: '1vw'}}>
+        <div style={{float: 'right', position: 'relative', right: '1vw', bottom: '5vh'}}>
           {
             // this.state.countries.map((country, i) => (
             //   <button
@@ -116,12 +116,12 @@ getCountryName(countryName) {
                 width={980}
                 height={551}
                 style={{
-                  width: "60vw",
+                  width: "70vw",
                   height: "auto",
                   position: 'relative',
                   float: 'right',
-                  right: '5vw',
-                  top: '5vh'
+                  right: '8vw',
+                  bottom: '5vh'
                 }}
               >
                 <ZoomableGroup center={[x,y]} zoom={zoom}>
