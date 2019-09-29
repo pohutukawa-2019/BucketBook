@@ -11,6 +11,7 @@ function getCountryByName (countryName, db = connection) {
   return db('Countries')
     .select()
     .where('name', countryName)
+    .first()
 }
 
 function addBucketListItem (bucketListItemTitle, selectedCountryId, userId, db = connection) {

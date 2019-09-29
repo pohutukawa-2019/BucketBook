@@ -11,7 +11,7 @@ beforeEach(() => {
 afterEach(() => env.cleanup(testDb))
 
 describe('Database functions for bucketlist items', () => {
-  it('getBucketListItemsByCountry() returns bucketlist items by country', () => {
+  it('getBucketListItemsByCountry returns bucketlist items by country', () => {
     expect.assertions(1)
 
     const expected = 2
@@ -31,6 +31,24 @@ describe('Database functions for bucketlist items', () => {
     return db.addBucketListItem(bucketListItemTitle, selectedCountryId, userId, testDb)
       .then(bucketListItem => {
         expect(bucketListItem[0]).toBe(5)
+      })
+  })
+
+  it('getCountryName returns a single country name', () => {
+    const countryName = 'Zambia'
+    const id = 2
+    
+    return db.getCountryByName(countryName, testDb)
+      .then(country => {
+        expect(country.name).toBe(countryName)
+        expect(country.id).toBe(id)
+      })
+  })
+
+  it('deleteBucketListItemById deletes a bucketlist item by id', () => {
+    return db.deleteBucketListItemById(3, testDb)
+      .then(bucketListItem => {
+        expect(bucketListItem).toBe(1)
       })
   })
 })
