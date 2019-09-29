@@ -6,16 +6,20 @@ function getBucketListItems (db = connection) {
 }
 
 function getBucketListItemsByCountry(selectedCountry, db = connection) {
-  console.log("Im WORKING");
   return db('BucketListItems')
     .join('Countries', 'BucketListItems.country_id', '=', 'Countries.id')
-    // .join('Users', 'Users.id')
-    .select('Countries.name as country', 'BucketListItems.title')
+    .select()
     .where('Countries.name', selectedCountry)
-    // .where('Users.id', id)
 }
+
+function addBucketListItem(bucketListItemTitle, selectedCountryId, userId, db = connection) {
+  return db('BucketListItems')
+    .insert({title: bucketListItemTitle, country_id: selectedCountryId, user_id: userId }) 
+}
+
 
 module.exports = {
   getBucketListItems,
-  getBucketListItemsByCountry
+  getBucketListItemsByCountry,
+  addBucketListItem
 }

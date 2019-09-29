@@ -1,6 +1,6 @@
 import makeRequest from './requestor'
 
-const bucketListItemsPath = '/country'
+const bucketListItemsPath = '/bucketlist'
 
 export function fetchBucketListItemsByCountry (selectedCountry) {
   return makeRequest(`${bucketListItemsPath}/${selectedCountry}`)
