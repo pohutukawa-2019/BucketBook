@@ -10,15 +10,15 @@ beforeEach(() => {
 
 afterEach(() => env.cleanup(testDb))
 
-describe('Database functions for bucket list items', () => {
-  it('getBucketListItemsByCountry() returns bucket list items', () => {
-    // expect.assertions(1)
+describe('Database functions for bucketlist items', () => {
+  it('getBucketListItemsByCountry() returns bucketlist items by country', () => {
+    expect.assertions(1)
 
-    const expected = 3
+    const expected = 2
 
-    return db.getBucketListItemsByCountry('New Zealand', testDb)
-      .then(items => {
-        const actual = items.length
+    return db.getBucketListItemsByCountry('Zambia', testDb)
+      .then(listItems => {
+        const actual = listItems.length
         expect(actual).toBe(expected)
       })
   })

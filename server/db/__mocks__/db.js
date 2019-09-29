@@ -6,41 +6,44 @@ module.exports = {
 const bucketListItems = [
   {
     id: 1,
-    title: 'swim'
+    title: 'swim',
+    country: 'New Zealand'
   },
   {
     id: 2,
-    title: 'sightsee'
+    title: 'sightsee',
+    country: 'New Zealand'
   },
   {
     id: 3,
-    title: 'hiking'
+    title: 'hiking',
+    country: 'New Zealand'
   }
 ]
 
-const selectedCountry = [
-  {
-    id: 1,
-    name: 'New Zealand'
-  },
-  {
-    id: 2,
-    name: 'Australia'
-  },
-  {
-    id: 3,
-    name: 'Japan'
-  }
-]
+// const selectedCountry = [
+//   {
+//     id: 1,
+//     name: 'New Zealand'
+//   },
+//   {
+//     id: 2,
+//     name: 'Australia'
+//   },
+//   {
+//     id: 3,
+//     name: 'Japan'
+//   }
+// ]
 
 let listItems = bucketListItems
-let country = selectedCountry
+// let country = selectedCountry
 
 function reset () {
   listItems = [...bucketListItems]
-  country = [...selectedCountry]
+  // country = [...selectedCountry]
 }
 
-async function getBucketListItemsByCountry (selectedCountry, id) {
-  return Promise.resolve(items.filter(item => item.selectedCountry === selectedCountry))
+async function getBucketListItemsByCountry (selectedCountry) {
+  return Promise.resolve(listItems.filter(listItem => listItem.selectedCountry === selectedCountry))
 }
