@@ -46,7 +46,7 @@ class Home extends React.Component {
           backgroundPosition: 'center',
           height: '100vh',
           width: '100vw',
-          backgroundImage: 'url(https://images.unsplash.com/photo-1547341220-3c11fb2e363f?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjkzNDQ2fQ)'
+          backgroundImage: 'url(https://images.unsplash.com/photo-1544945582-052b29cd29e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1488&q=80)'
       }})
     }
   }

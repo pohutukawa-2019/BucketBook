@@ -12,9 +12,8 @@ class Header extends Component {
         <Menu pointing secondary style={{borderBottom: '0px', border: 'none', fontSize: '15px'}}>
           <Menu.Menu position='left'>
             <Link to='/'><Menu.Item
-            name='home'
-            style={{color: 'white'}}
-            /></Link>
+            style={{ width: '5vw' }}
+            /><img src={'/images/bb_logo_lscape_white.svg'} style={{position: 'relative', left: '2vw'}}></img></Link>
           </Menu.Menu>
           <Menu.Menu position='right'>
             <IfAuthenticated>
