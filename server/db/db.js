@@ -7,6 +7,12 @@ function getBucketListItemsByCountry(selectedCountry, db = connection) {
     .where('Countries.name', selectedCountry)
 }
 
+function getCountryByName (countryName, db = connection) {
+  return db('Countries')
+    .select()
+    .where('name', countryName)
+}
+
 function addBucketListItem(bucketListItemTitle, selectedCountryId, userId, db = connection) {
   return db('BucketListItems')
     .insert({title: bucketListItemTitle, country_id: selectedCountryId, user_id: userId }) 
@@ -21,5 +27,6 @@ function deleteBucketListItemById(id, db = connection) {
 module.exports = {
   getBucketListItemsByCountry,
   addBucketListItem,
-  deleteBucketListItemById
+  deleteBucketListItemById,
+  getCountryByName
 }
