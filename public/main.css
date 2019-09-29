@@ -1,5 +1,5 @@
 * {
-  margin: 0px
+  margin: 0px;
 }
 
 .ui.input > input {
@@ -7,6 +7,7 @@
   /* background-color: rgba(33, 128, 30, 0.76) !important; */
   border-color: white !important;
   color: white !important;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .ui.icon.input > i.icon:not(.link) {

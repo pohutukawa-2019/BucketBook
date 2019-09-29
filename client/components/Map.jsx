@@ -52,7 +52,6 @@ handleReset() {
 
 handleZoomIn() {
   this.setState({
-    // center: [0,20],
     zoom: this.state.zoom+1,
   })
 }
@@ -60,7 +59,6 @@ handleZoomIn() {
 handleZoomOut() {
   if(this.state.zoom !== 1){
   this.setState({
-    // center: [0,20], 
     zoom: this.state.zoom-1,
   
   })}
