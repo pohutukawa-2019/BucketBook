@@ -22,4 +22,17 @@ describe('Database functions for bucketlist items', () => {
         expect(actual).toBe(expected)
       })
   })
+
+  it('addBucketListItem returns a new bucketlist item', () => {
+    const bucketListItemTitle = 'Hop'
+    const selectedCountryId = 2
+    const userId = 2
+
+    return db.addBucketListItem(bucketListItemTitle, selectedCountryId, userId, testDb)
+      .then(bucketListItem => {
+        expect(bucketListItem.bucketListItemTitle).toBe(bucketListItemTitle.title)
+        expect(bucketListItem.selectedCountryId).toBe(selectedCountryId.id)
+        expect(bucketListItem.userId).toBe(userId.id)
+      })
+  })
 })

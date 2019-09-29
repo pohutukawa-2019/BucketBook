@@ -9,7 +9,11 @@ function getBucketListItemsByCountry(selectedCountry, db = connection) {
 
 function addBucketListItem(bucketListItemTitle, selectedCountryId, userId, db = connection) {
   return db('BucketListItems')
-    .insert({title: bucketListItemTitle, country_id: selectedCountryId, user_id: userId }) 
+    .insert({
+      title: bucketListItemTitle,
+      country_id: selectedCountryId,
+      user_id: userId
+    }) 
 }
 
 function getCountryByName (countryName, db = connection) {
