@@ -1,13 +1,11 @@
 const path = require('path')
 const express = require('express')
 
-const backgroundRoutes = require('./routes/background')
-const bucketListRoutes = require('./routes/bucketlist')
-
 const server = express()
 const authRoutes = require('./routes/auth')
 const backgroundRoutes = require('./routes/background')
 const countryRoutes = require('./routes/country')
+const bucketListRoutes = require('./routes/bucketlist')
 
 server.use(express.json())
 server.use(express.static(path.join(__dirname, '../public')))
