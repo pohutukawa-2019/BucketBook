@@ -15,10 +15,11 @@ class SignIn extends Component {
     picture: 'https://images.unsplash.com/photo-1514167451507-c1b5dec6cfd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80',
     style: {
       backgroundImage: 'url(https://images.unsplash.com/photo-1506783323968-e8dad28ae1de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2090&q=80)',
-      backgroundSize: '100%, 100%',
+      backgroundSize: 'cover',
       backgroundPosition: 'center',
       height: '100vh',
       width: '100vw',
+      backgroundRepeat: 'no-repeat'
     }
   }
 
