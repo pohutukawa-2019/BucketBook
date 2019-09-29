@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 
+import { Button } from 'semantic-ui-react'
+
 import {
   ComposableMap,
   ZoomableGroup,
@@ -72,26 +74,26 @@ getCountryName(countryName) {
   render() {
     return (
       <div className="div buttons-for-countries">
-        <div style={wrapperStyles}>
+        <div style={{float: 'right', position: 'relative', right: '1vw'}}>
           {
-            this.state.countries.map((country, i) => (
-              <button
-                key={i}
-                className="btn px1"
-                data-country={i}
-                onClick={this.handleCountrySelection}
-              >
-                { country.name }
-              </button>
-            ))
+            // this.state.countries.map((country, i) => (
+            //   <button
+            //     key={i}
+            //     className="btn px1"
+            //     data-country={i}
+            //     onClick={this.handleCountrySelection}
+            //   >
+            //     { country.name }
+            //   </button>
+            // ))
           }
-          <button onClick={this.handleReset}>
+          <Button onClick={this.handleReset}>
             { "Reset" }
-          </button>
-          <button onClick={() => this.handleZoomIn()} onClick={() => this.handleZoomIn()}>ZOOM IN</button>     
-          <button onClick={() => this.handleZoomOut()}>ZOOM OUT</button>
-          <h1 style={{color: 'white', position: 'relative', left: '2vw'}}>{this.state.activeCountry}</h1>
+          </Button>
+          <Button onClick={() => this.handleZoomIn()} onClick={() => this.handleZoomIn()}>ZOOM IN</Button>     
+          <Button onClick={() => this.handleZoomOut()}>ZOOM OUT</Button>
         </div>
+          <h1 style={{color: 'white', position: 'relative', left: '1vw', bottom: '6vh'}}>{this.state.activeCountry}</h1>
         <div style={wrapperStyles}>
           <Motion
             defaultStyle={{

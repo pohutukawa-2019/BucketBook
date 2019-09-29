@@ -47,25 +47,13 @@ class Searchbar extends Component {
             onSearchChange={_.debounce(this.handleSearchChange, 500, {
               leading: true,
             })}
-            style={{ position: 'relative', left: '1vw', top: '15vh'}}
+            style={{ position: 'relative', left: '1vw', top: '6vh'}}
             results={results}
             value={value}
             resultRenderer={resultRenderer}
             {...this.props}
           />
         </Grid.Column>
-        {/* <Grid.Column width={10}>
-          <Segment>
-            <Header>State</Header>
-            <pre style={{ overflowX: 'auto' }}>
-              {JSON.stringify(this.state, null, 2)}
-            </pre>
-            <Header>Options</Header>
-            <pre style={{ overflowX: 'auto' }}>
-              {JSON.stringify(searchData.data, null, 2)}
-            </pre>
-          </Segment>
-        </Grid.Column> */}
       </Grid>
     )
   }
