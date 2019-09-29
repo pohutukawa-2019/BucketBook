@@ -18,15 +18,15 @@ class Header extends Component {
           <Menu.Menu position='right'>
             <IfAuthenticated>
               <Link to='/'><Menu.Item
-                name='sign out'
+                name='SIGN OUT'
                 onClick={logOff}
-                style={{color: 'white'}}
+                style={{color: 'white', borderStyle: 'solid', borderColor: 'orange', borderRadius: '5px', position: 'relative', right: '2vw', top: '2vh', borderWidth: '3px', fontWeight: '900'}}
               /></Link>
             </IfAuthenticated>
             <IfNotAuthenticated>
             <Link to='/SignUp'><Menu.Item
             name='sign up'
-            style={{color: 'white'}}
+            style={{color: 'white', borderStyle: 'solid', borderColor: 'white', borderRadius: '5px', position: 'relative', right: '2vw', top: '2vh', borderWidth: '3px', fontWeight: '900'}}
             /></Link>
             </IfNotAuthenticated>
           </Menu.Menu>
