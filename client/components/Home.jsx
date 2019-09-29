@@ -64,8 +64,8 @@ class Home extends React.Component {
           <IfNotAuthenticated>
           <div style={{textAlign: 'center'}}>
             <h1 style={{color: 'white', fontFamily: 'Montserrat, sans-serif', fontSize: '100px', fontWeight: '300', position: 'relative', top: '23vh', display: 'inline-block', width: '100vw'}}>Welcome</h1>
-            <h2 style={{color: 'white', fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: '100', position: 'relative', top: '19vh', display: 'inline-block', width: '100vw'}}>Start creating your travel bucket list today</h2>
-            <Link to='/login'><button className='ui button' onClick={this.handleClick} style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', backgroundColor: 'orange', color: 'white', fontWeight: '100', width: '13vw', height: '6vh', position: 'relative', top: '21vh', display: 'inline-block' }}>SIGN IN</button></Link>
+            <h2 style={{color: 'white', fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: '100', position: 'relative', top: '18vh', display: 'inline-block', width: '100vw'}}>Start creating your travel bucket list today</h2>
+            <Link to='/login'><button className='ui button' onClick={this.handleClick} style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', backgroundColor: 'orange', color: 'white', fontWeight: '100', width: '13vw', height: '6vh', position: 'relative', top: '20vh', display: 'inline-block' }}>SIGN IN</button></Link>
             </div>          
           </IfNotAuthenticated>
           <IfAuthenticated>
