@@ -5,39 +5,28 @@ import { Link } from 'react-router-dom'
 import { logOff } from 'authenticare/client'
 
 class Header extends Component {
-
-state = { 
-  activeItem: 'home'
-}
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
   render() {
-    const { activeItem } = this.state
 
     return (
-      <div>
-        <Menu pointing secondary>
+      <div style={{backgroundColor: 'rgba(0, 0, 0, 0)'}}>
+        <Menu pointing secondary style={{borderBottom: '0px', border: 'none', fontSize: '15px'}}>
           <Menu.Menu position='left'>
             <Link to='/'><Menu.Item
-            name='home'
-            active={activeItem === 'home'}
-            onClick={this.handleItemClick}
-            /></Link>
+            style={{ width: '5vw' }}
+            /><img src={'/images/bb_logo_lscape_white.svg'} style={{position: 'relative', left: '2vw', width: '7vw', top: '-1vh'}}></img></Link>
           </Menu.Menu>
           <Menu.Menu position='right'>
             <IfAuthenticated>
               <Link to='/'><Menu.Item
-                name='sign out'
-                active={activeItem === 'sign out'}
+                name='SIGN OUT'
                 onClick={logOff}
+                style={{color: 'white', borderStyle: 'solid', borderColor: 'orange', borderRadius: '5px', position: 'relative', right: '2vw', top: '2vh', borderWidth: '3px', fontWeight: '900'}}
               /></Link>
             </IfAuthenticated>
             <IfNotAuthenticated>
-            <Link to='/SignUp'><Menu.Item
+            <Link to='/register'><Menu.Item
             name='sign up'
-            active={activeItem === 'sign up'}
-            onClick={this.handleItemClick}
+            style={{color: 'white', borderStyle: 'solid', borderColor: 'white', borderRadius: '5px', position: 'relative', right: '2vw', top: '2vh', borderWidth: '3px', fontWeight: '900'}}
             /></Link>
             </IfNotAuthenticated>
           </Menu.Menu>
