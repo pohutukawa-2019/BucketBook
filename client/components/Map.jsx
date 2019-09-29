@@ -86,7 +86,7 @@ class Map extends Component {
             //   </button>
             // ))
           }
-          <Button onClick={this.handleReset} style={{backgroundColor: '#333333', color: 'white'}}>
+          <Button onClick={this.handleReset} style={{backgroundColor: 'white', color: '#333333'}}>
             { "Reset" }
           </Button>
           <Button onClick={() => this.handleZoomIn()} onClick={() => this.handleZoomIn()} style={{backgroundColor: '#333333', color: 'white'}}>ZOOM IN</Button>     
