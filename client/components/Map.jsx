@@ -120,7 +120,7 @@ class Map extends Component {
                   position: 'relative',
                   float: 'right',
                   right: '8vw',
-                  bottom: '5vh'
+                  bottom: '6.5vh'
                 }}
               >
                 <ZoomableGroup center={[x, y]} zoom={zoom}>
