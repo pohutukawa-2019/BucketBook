@@ -30,9 +30,6 @@ describe('Database functions for bucketlist items', () => {
 
     return db.addBucketListItem(bucketListItemTitle, selectedCountryId, userId, testDb)
       .then(bucketListItem => {
-        // expect(bucketListItem.bucketListItemTitle).toBe(bucketListItemTitle.title)
-        // expect(bucketListItem.selectedCountryId).toBe(selectedCountryId.id)
-        // expect(bucketListItem.userId).toBe(userId.id)
         expect(bucketListItem[0]).toBe(5)
       })
   })
