@@ -1,11 +1,18 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import BucketList from './BucketList'
 import Header from './Header'
 import Footer from './Footer'
+import { getCountry } from '../actions/country'
 
 class CountryPage extends React.Component {
-  render() {
+  componentDidMount () {
+    const selectedCountry = this.props.match.params.selectedCountry
+    this.props.getCountry(selectedCountry)
+  }
+
+  render () {
     return (
       <>
         <Header />
@@ -22,4 +29,16 @@ class CountryPage extends React.Component {
   }
 }
 
-export default CountryPage
+const mapStateToProps = state => {
+  return {
+    selectedCountry: state.selectedCountry
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getCountry: selectedCountry => dispatch(getCountry(selectedCountry))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CountryPage)
