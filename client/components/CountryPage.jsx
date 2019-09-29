@@ -5,26 +5,51 @@ import BucketList from './BucketList'
 import Header from './Header'
 import Footer from './Footer'
 import { getCountry } from '../actions/country'
+import { fetchBackgroundImageByCountry } from '../api/fetchBackgroundImage'
 
 class CountryPage extends React.Component {
+  state = {
+    style: {
+      backgroundImage: '',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      height: '100vh',
+      width: '100vw',
+      backgroundRepeat: 'no-repeat'
+    }
+  }
+  randomPhoto = (min, max) => {
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min)) + min
+  }
   componentDidMount () {
     const selectedCountry = this.props.match.params.selectedCountry
+    const random = this.randomPhoto(1, 10)
+    fetchBackgroundImageByCountry(selectedCountry)
+      .then(res => {
+        this.setState({ style: {
+          backgroundSize: '100%, 100%',
+          backgroundPosition: 'center',
+          height: '100vh',
+          width: '100vw',
+          backgroundImage: `url(${res.body.results[random].urls.full})`
+        } })
+      })
     this.props.getCountry(selectedCountry)
   }
 
   render () {
     return (
-      <>
+      <div className='bucketlist-container' style={this.state.style}>
         <Header />
-        <div className='bucketlist-container'>
-          <div className='bucketlist-header'>
-            <h1>Add an item to<br></br> your bucket list.</h1>
-            <h2 style={{float: 'right', top: '-3vh',right: '10vw', position: 'relative'}}>{this.props.match.params.selectedCountry}</h2>
-          </div>
-          <BucketList />
+        <div className='bucketlist-header'>
+          <h1>Add an item to<br></br> your bucket list.</h1>
+          <h2 style={{ float: 'right', top: '-3vh', right: '10vw', position: 'relative' }}>{this.props.match.params.selectedCountry}</h2>
         </div>
+        <BucketList />
         <Footer />
-      </>
+      </div>
     )
   }
 }
