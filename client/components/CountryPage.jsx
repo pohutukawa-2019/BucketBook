@@ -35,8 +35,7 @@ class CountryPage extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    selectedCountry: state.selectedCountry,
-    bucketList: state.bucketList
+    selectedCountry: state.selectedCountry
   }
 }
 

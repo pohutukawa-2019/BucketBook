@@ -4,8 +4,15 @@ import { connect } from 'react-redux'
 import BucketListItem from './BucketListItem'
 import AddNewBucketListItem from './AddNewBucketListItem'
 
+import { deleteBucketListItem } from '../actions/bucketListItems'
 
-class BucketList extends Component {
+
+
+class BucketList extends Component { 
+  removeHandler = (id, selectedCountry) => {
+    this.props.deleteBucketListItem(id, selectedCountry) 
+  }
+
  render() {
     return (
       <div className='bucketlist'>
@@ -14,7 +21,10 @@ class BucketList extends Component {
           return <BucketListItem 
             key={bucketListItem.id} 
             id={bucketListItem.id} 
-            title={bucketListItem.title} />}
+            title={bucketListItem.title}
+            countryName={bucketListItem.name}
+            removeHandler={this.removeHandler}
+            />}
           )}
     </div>
     )
@@ -30,6 +40,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    deleteBucketListItem: (id, selectedCountry) => dispatch(deleteBucketListItem(id, selectedCountry))
   }
 }
 

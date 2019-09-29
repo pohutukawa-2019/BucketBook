@@ -5,7 +5,7 @@ const BucketListItem = (props) => {
   return(
     <div className='bucketlist-item'>
       <p>{props.title}</p> 
-      <button>X</button>
+      <button onClick={() => props.removeHandler(props.id, props.countryName)}>X</button>
     </div>
   )
 }

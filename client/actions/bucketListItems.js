@@ -1,5 +1,5 @@
 import { fetchBucketListItemsByCountry } from '../api/fetchbucketlistitems'
-import {} from '../api'
+import { removeBucketListItemsById } from '../api/removeBucketListItemById'
 
 export const GET_BUCKETLIST_PENDING = 'GET_BUCKETLIST_PENDING'
 export const GET_BUCKETLIST_SUCCESS = 'GET_BUCKETLIST_SUCCESS'
@@ -42,12 +42,12 @@ export function getBucketList (countryName) {
   }
 }
 
-
 export function deleteBucketListItem (bucketListItemId, selectedCountry){
   return dispatch => {
     dispatch(deleteBucketListItemPending())
-    return
-    dele
+    return removeBucketListItemsById(bucketListItemId, selectedCountry)
+      .then(updatedBucketListArr => {
+        dispatch(deleteBucketListItemSuccess(updatedBucketListArr))
+      })
+    }
   }
-}
-
