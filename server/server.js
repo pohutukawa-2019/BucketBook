@@ -2,8 +2,8 @@ const path = require('path')
 const express = require('express')
 
 const server = express()
+
 const authRoutes = require('./routes/auth')
-// Get tokendecoder
 const backgroundRoutes = require('./routes/background')
 const countryRoutes = require('./routes/country')
 const bucketListRoutes = require('./routes/bucketlist')

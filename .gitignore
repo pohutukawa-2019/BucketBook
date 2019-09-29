@@ -1,4 +1,5 @@
 node_modules
 bundle*
 .env
-*sqlite3
+*.sqlite3
+server/db/dev.sqlite3
