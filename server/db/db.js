@@ -3,7 +3,7 @@ const connection = require('./connection')
 function getBucketListItemsByCountry (selectedCountry, db = connection) {
   return db('BucketListItems')
     .join('Countries', 'BucketListItems.country_id', '=', 'Countries.id')
-    .select()
+    .select('BucketListItems.id as id', 'title', 'country_id', 'user_id', 'name')
     .where('Countries.name', selectedCountry)
 }
 

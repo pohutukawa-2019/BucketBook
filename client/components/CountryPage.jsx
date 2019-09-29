@@ -4,12 +4,16 @@ import { connect } from 'react-redux'
 import BucketList from './BucketList'
 import Header from './Header'
 import Footer from './Footer'
+
 import { getCountry } from '../actions/country'
+import { getBucketList } from '../actions/bucketListItems'
+
 
 class CountryPage extends React.Component {
   componentDidMount () {
     const selectedCountry = this.props.match.params.selectedCountry
     this.props.getCountry(selectedCountry)
+    this.props.getBucketList(selectedCountry)
   }
 
   render () {
@@ -31,13 +35,16 @@ class CountryPage extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    selectedCountry: state.selectedCountry
+    selectedCountry: state.selectedCountry,
+    bucketList: state.bucketList
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCountry: selectedCountry => dispatch(getCountry(selectedCountry))
+    getCountry: selectedCountry => dispatch(getCountry(selectedCountry)),
+    getBucketList: selectedCountry => dispatch(getBucketList(selectedCountry))
+
   }
 }
 
