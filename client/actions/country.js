@@ -21,7 +21,7 @@ export function getCountry (countryName) {
     dispatch(getCountryPending())
     return fetchCountryByName(countryName)
       .then(countryDataArr => {
-        dispatch(getCountrySuccess(countryDataArr))
+        dispatch(getCountrySuccess(countryDataArr[0]))
       })
   }
 }
