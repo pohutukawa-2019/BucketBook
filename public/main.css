@@ -4,6 +4,8 @@
 
 input:focus {outline:0;}
 
+button:focus {outline:0;}
+
 .ui.input > input {
   background-color: rgba(30, 113, 128, 0.76) !important;
   border-color: white !important;
