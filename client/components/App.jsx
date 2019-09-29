@@ -13,8 +13,8 @@ class App extends React.Component {
       <Router>
         <Switch>
           <Route path='/' exact component={Home} />
-          <Route path='/signIn' component={SignIn} />
-          <Route path='/signUp' component={SignUp} />
+          <Route path='/login' component={SignIn} />
+          <Route path='/register' component={SignUp} />
           <Route path='/country/:selectedCountry' component={CountryPage} />
         </Switch>
       </Router>
