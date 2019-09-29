@@ -14,10 +14,11 @@ class Home extends React.Component {
   state = {
     style: {
       backgroundImage: 'url(https://images.unsplash.com/photo-1545288204-7ed1f80acba3?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjkzNDQ2fQ)',
-      backgroundSize: '100%, 100%',
+      backgroundSize: 'cover',
       backgroundPosition: 'center',
       height: '100vh',
       width: '100vw',
+      backgroundRepeat: 'no-repeat'
     }
   }
 
