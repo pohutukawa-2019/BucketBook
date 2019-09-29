@@ -7,15 +7,8 @@ import {
   ComposableMap,
   ZoomableGroup,
   Geographies,
-<<<<<<< HEAD
   Geography
 } from "react-simple-maps"
-=======
-  Geography,
-  Markers,
-  Marker
-} from 'react-simple-maps'
->>>>>>> c1dd893f42bbc8e2e725cb0592783511f8b43d2a
 
 import { Motion, spring } from 'react-motion'
 
