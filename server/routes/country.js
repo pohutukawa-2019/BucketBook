@@ -8,7 +8,7 @@ router.use(express.json())
 
 router.get('/:countryName', (req, res) => {
   return db.getCountryByName(req.params.countryName)
-    .then(countryData => res.status(200).json(countryData))
+    .then(countryData => res.status(200).send(countryData))
     .catch(err => res.status(500).send(err.message))
 })
 

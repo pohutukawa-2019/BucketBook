@@ -12,6 +12,8 @@ import {
 
 import { Motion, spring } from "react-motion"
 
+import { getCountry } from '../actions/country'
+
 const wrapperStyles = {
   width: "100%",
   maxWidth: "100%",
@@ -126,9 +128,9 @@ getCountryName(countryName) {
                     {(geographies, projection) => geographies.map(geography => (
                       <Link key={geography.id} to={`/country/${geography.properties.name}`}>
                         <Geography
-                          key={ `A${geography.properties.name}` } 
-                          geography={ geography } 
-                          projection={ projection } 
+                          key={ `A${geography.properties.name}` }
+                          geography={ geography }
+                          projection={ projection }
                           countries={this.state.listOfCountries.push(geography.properties.name)}
                           onMouseEnter={() => this.getCountryName(geography.properties.name)}
                           onMouseMove={this.handleMove}

@@ -1,9 +1,12 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import BucketList from './BucketList'
+import { getCountry } from '../actions/country'
 
 class CountryPage extends React.Component {
-  render() {
+
+  render () {
     return (
       <div className='bucketlist-container'>
         <div className='bucketlist-header'>
@@ -16,4 +19,10 @@ class CountryPage extends React.Component {
   }
 }
 
-export default CountryPage
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getCountry: () => dispatch(getCountry())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(CountryPage)
