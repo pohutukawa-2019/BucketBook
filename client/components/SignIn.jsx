@@ -12,6 +12,7 @@ class SignIn extends Component {
   state = {
     username: '',
     password: '',
+    picture: 'https://images.unsplash.com/photo-1514167451507-c1b5dec6cfd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80',
     style: {
       backgroundImage: ''
     }
@@ -67,31 +68,48 @@ class SignIn extends Component {
   gridStyle = {
     backgroundColor: 'rgba(30, 113, 128, 0.80)',
     position: 'relative',
+    top: '8vh',
     left: '30vw',
-    width: '40vw',
+    width: '35vw',
     color: 'white',
     borderRadius: '15px',
-    height: '70vh'
+    height: '75vh'
   }
 
   render () {
     return (
       <div style={this.state.style}>
         <Header />
-        <h2 style={{color: 'white'}}>Sign In</h2>
         <GridForm style={this.gridStyle}>
+          <img src={this.state.picture} alt='Missing'
+            style={{
+              borderRadius: '50%',
+              width: '220px',
+              height: '220px',
+              position: 'absolute',
+              left: '11vw',
+              top: '9vh',
+              borderStyle: 'solid',
+              borderWidth: '2px',
+              borderColor: 'orange'
+              }}></img>
+
           <ColTwo name='username'
             placeholder='Username'
             onChange={this.handleChange}
             style={{
-              width: '35vw',
+              width: '30vw',
               height: '5vh',
               fontFamily: 'Montserrat, sans-serif',
               backgroundColor: 'rgba(0, 0, 0, 0)',
               borderWidth: '0px', 
               color: 'white',
               borderBottomWidth: '1px',
-              borderBottomColor: 'white'
+              borderBottomColor: 'white',
+              position: 'relative',
+              left: '1.5vw',
+              top: '40.5vh',
+              fontSize: '17px'
             }}
             />
 
@@ -99,18 +117,34 @@ class SignIn extends Component {
             placeholder='Password'
             onChange={this.handleChange}
             style={{
-              width: '35vw',
+              width: '30vw',
               height: '5vh',
               fontFamily: 'Montserrat, sans-serif',
               backgroundColor: 'rgba(0, 0, 0, 0)',
               borderWidth: '0px', 
               color: 'white',
               borderBottomWidth: '1px',
-              borderBottomColor: 'white'
+              borderBottomColor: 'white',
+              position: 'relative',
+              left: '1.5vw',
+              top: '25vh',
+              fontSize: '17px'
             }}
             />
 
-          <Button type='button' onClick={this.handleClick}>Sign in</Button>
+          <Button type='button' style={{
+            width: '8vw',
+            height: '4vh', 
+            position: 'relative',
+            top: '12vh',
+            left: '2vw',
+            backgroundColor: 'orange',
+            borderRadius: '10px',
+            fontFamily: 'Montserrat, sans-serif',
+            borderStyle: 'none',
+            color: 'white',
+            cursor: 'pointer'
+            }} onClick={this.handleClick}>SUBMIT</Button>
         </GridForm>
         <Footer />
       </div>

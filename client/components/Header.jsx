@@ -24,7 +24,7 @@ class Header extends Component {
               /></Link>
             </IfAuthenticated>
             <IfNotAuthenticated>
-            <Link to='/SignUp'><Menu.Item
+            <Link to='/register'><Menu.Item
             name='sign up'
             style={{color: 'white', borderStyle: 'solid', borderColor: 'white', borderRadius: '5px', position: 'relative', right: '2vw', top: '2vh', borderWidth: '3px', fontWeight: '900'}}
             /></Link>

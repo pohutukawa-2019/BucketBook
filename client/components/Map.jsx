@@ -85,11 +85,11 @@ getCountryName(countryName) {
             //   </button>
             // ))
           }
-          <Button onClick={this.handleReset}>
+          <Button onClick={this.handleReset} style={{backgroundColor: '#333333', color: 'white'}}>
             { "Reset" }
           </Button>
-          <Button onClick={() => this.handleZoomIn()} onClick={() => this.handleZoomIn()}>ZOOM IN</Button>     
-          <Button onClick={() => this.handleZoomOut()}>ZOOM OUT</Button>
+          <Button onClick={() => this.handleZoomIn()} onClick={() => this.handleZoomIn()} style={{backgroundColor: '#333333', color: 'white'}}>ZOOM IN</Button>     
+          <Button onClick={() => this.handleZoomOut()} style={{backgroundColor: '#333333', color: 'white'}}>ZOOM OUT</Button>
         </div>
           <h1 style={{color: 'white', position: 'relative', left: '1vw', bottom: '6vh', fontFamily: 'Montserrat, sans-serif'}}>{this.state.activeCountry}</h1>
         <div style={wrapperStyles}>
