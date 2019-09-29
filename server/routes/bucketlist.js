@@ -15,7 +15,7 @@ router.get('/:selectedCountry', tokenDecoder, (req, res) => {
   .then(countryItems => countryItems.filter( item => {
     return item.user_id === userId
   }
-  )).then(item => res.status(200).json(item))
+  )).then(bucketList => res.status(200).json(bucketList))
 })
 
 router.post('/:selectedCountry', tokenDecoder, async (req, res) => { 
@@ -26,6 +26,22 @@ router.post('/:selectedCountry', tokenDecoder, async (req, res) => {
 try {
   db.addBucketListItem(bucketListItemTitle, countryId, userId)
     .then(bucketListID => res.status(200).json(bucketListID))
+  } catch (err) {
+    res.status(500).send(err.message)
+  }
+})
+
+router.delete('/:selectedCountry', tokenDecoder, async (req, res) => { 
+  const selectedCountry = req.params.selectedCountry
+  const bucketListId = req.body.id
+  const userId = Number(req.user.id)
+
+try {
+  db.deleteBucketListItemById(bucketListId)
+    .then(()=> db.getBucketListItemsByCountry(selectedCountry)) .then(countryItems => countryItems.filter(item => {
+      return item.user_id === userId
+    }
+    )).then(bucketList => res.status(200).json(bucketList))
   } catch (err) {
     res.status(500).send(err.message)
   }
