@@ -72,7 +72,7 @@ getCountryName(countryName) {
   render() {
     return (
       <div className="div buttons-for-countries">
-        <div style={{float: 'right', position: 'relative', right: '1vw', bottom: '5vh'}}>
+        <div style={{float: 'right', position: 'relative', right: '1vw', bottom: '5vh', fontFamily: 'Montserrat, sans-serif'}}>
           {
             // this.state.countries.map((country, i) => (
             //   <button
@@ -91,7 +91,7 @@ getCountryName(countryName) {
           <Button onClick={() => this.handleZoomIn()} onClick={() => this.handleZoomIn()}>ZOOM IN</Button>     
           <Button onClick={() => this.handleZoomOut()}>ZOOM OUT</Button>
         </div>
-          <h1 style={{color: 'white', position: 'relative', left: '1vw', bottom: '6vh'}}>{this.state.activeCountry}</h1>
+          <h1 style={{color: 'white', position: 'relative', left: '1vw', bottom: '6vh', fontFamily: 'Montserrat, sans-serif'}}>{this.state.activeCountry}</h1>
         <div style={wrapperStyles}>
           <Motion
             defaultStyle={{

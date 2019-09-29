@@ -47,7 +47,7 @@ class Searchbar extends Component {
             onSearchChange={_.debounce(this.handleSearchChange, 500, {
               leading: true,
             })}
-            style={{ position: 'relative', left: '1vw', top: '6vh'}}
+            style={{ position: 'relative', left: '1vw', top: '6vh', fontFamily: 'Montserrat, sans-serif'}}
             results={results}
             value={value}
             resultRenderer={resultRenderer}
