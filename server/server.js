@@ -6,6 +6,7 @@ const bucketListRoutes = require('./routes/bucketlist')
 
 const server = express()
 const authRoutes = require('./routes/auth')
+// Get tokendecoder
 
 server.use(express.json())
 server.use(express.static(path.join(__dirname, '../public')))

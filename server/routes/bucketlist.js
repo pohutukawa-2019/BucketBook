@@ -1,28 +1,34 @@
-const { getTokenDecoder } = require('authenticare/server')
 const express = require('express')
 
+const router = express()
 const db = require('../db/db')
+const { getTokenDecoder } = require('authenticare/server')
+router.use(express.json())
 
 const tokenDecoder = getTokenDecoder(false)
 
-const router = express()
-
-router.use(express.json())
-
 router.get('/:selectedCountry', tokenDecoder, (req, res) => {
   const selectedCountry = req.params.selectedCountry
-  // const bodyResCountry = req.body
-  // const id = 2
-  // // if (req.user) {
-  // //   console.log(req.user.id)
-  // // } else {
-  // //   console.log('testing')
-  // // }
-  // console.log(bodyResCountry)
-  // // res.send('HELLO')
-  db.getBucketListItemsByCountry(selectedCountry) 
-    .then((res) => console.log(res))
-    // .then(item => res.status(200).json(item))
+  const userId = Number(req.user.id)
+  console.log(selectedCountry)
+  db.getBucketListItemsByCountry(selectedCountry)
+  .then(countryItems => countryItems.filter( item => {
+    return item.user_id === userId
+  }
+  )).then(item => res.status(200).json(item))
+})
+
+router.post('/:selectedCountry', tokenDecoder, async (req, res) => { 
+  const bucketListItemTitle = req.body.title
+  const countryId = req.body.country_id
+  const userId = Number(req.user.id)
+
+try {
+  db.addBucketListItem(bucketListItemTitle, countryId, userId)
+    .then(bucketListID => res.status(200).json(bucketListID))
+  } catch (err) {
+    res.status(500).send(err.message)
+  }
 })
 
 module.exports = router

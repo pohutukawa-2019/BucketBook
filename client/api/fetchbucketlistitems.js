@@ -1,5 +1,5 @@
 import makeRequest from './requestor'
-import { getEncodedToken } from 'authenticare/client'
+import {getEncodedToken} from 'authenticare/client'
 
 const bucketListItemsPath = '/api/v1/bucketlist'
 
