@@ -5,24 +5,14 @@ import { Link } from 'react-router-dom'
 import { logOff } from 'authenticare/client'
 
 class Header extends Component {
-
-state = { 
-  activeItem: 'home'
-}
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
   render() {
-    const { activeItem } = this.state
 
     return (
-      <div style={{backgroundColor: 'rgba(75, 113, 210, 0.5)'}}>
-        <Menu pointing secondary>
+      <div style={{backgroundColor: 'rgba(0, 0, 0, 0)'}}>
+        <Menu pointing secondary style={{borderBottom: '0px', border: 'none', fontSize: '15px'}}>
           <Menu.Menu position='left'>
             <Link to='/'><Menu.Item
             name='home'
-            active={activeItem === 'home'}
-            onClick={this.handleItemClick}
             style={{color: 'white'}}
             /></Link>
           </Menu.Menu>
@@ -30,7 +20,6 @@ state = {
             <IfAuthenticated>
               <Link to='/'><Menu.Item
                 name='sign out'
-                active={activeItem === 'sign out'}
                 onClick={logOff}
                 style={{color: 'white'}}
               /></Link>
@@ -38,8 +27,6 @@ state = {
             <IfNotAuthenticated>
             <Link to='/SignUp'><Menu.Item
             name='sign up'
-            active={activeItem === 'sign up'}
-            onClick={this.handleItemClick}
             style={{color: 'white'}}
             /></Link>
             </IfNotAuthenticated>

@@ -41,12 +41,13 @@ class Searchbar extends Component {
     return (
       <Grid>
         <Grid.Column width={6}>
-          <Search
+          <Search className={'search'}
             loading={isLoading}
             onResultSelect={this.handleResultSelect}
             onSearchChange={_.debounce(this.handleSearchChange, 500, {
               leading: true,
             })}
+            style={{ position: 'relative', left: '1vw', top: '15vh'}}
             results={results}
             value={value}
             resultRenderer={resultRenderer}

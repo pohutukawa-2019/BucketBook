@@ -1,3 +1,10 @@
 * {
   margin: 0px
 }
+
+.ui.input > input {
+  /* background-color: rgba(30, 113, 128, 0.76) !important; */
+  background-color: rgba(33, 128, 30, 0.76) !important;
+  border-style: solid;
+  border-color: white;
+}

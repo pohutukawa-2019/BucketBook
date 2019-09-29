@@ -90,7 +90,7 @@ getCountryName(countryName) {
           </button>
           <button onClick={() => this.handleZoomIn()} onClick={() => this.handleZoomIn()}>ZOOM IN</button>     
           <button onClick={() => this.handleZoomOut()}>ZOOM OUT</button>
-          <h1 style={{color: 'white'}}>{this.state.activeCountry}</h1>
+          <h1 style={{color: 'white', position: 'relative', left: '2vw'}}>{this.state.activeCountry}</h1>
         </div>
         <div style={wrapperStyles}>
           <Motion
@@ -114,8 +114,12 @@ getCountryName(countryName) {
                 width={980}
                 height={551}
                 style={{
-                  width: "100%",
+                  width: "60vw",
                   height: "auto",
+                  position: 'relative',
+                  float: 'right',
+                  right: '5vw',
+                  top: '5vh'
                 }}
               >
                 <ZoomableGroup center={[x,y]} zoom={zoom}>

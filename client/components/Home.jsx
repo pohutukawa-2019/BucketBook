@@ -6,6 +6,7 @@ import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 import Map from './Map'
 import Footer from './Footer'
 import Searchbar from './Searchbar'
+import Header from './Header'
 
 import { fetchBackgroundImage } from '../api/fetchBackgroundImage'
 
@@ -58,18 +59,19 @@ class Home extends React.Component {
     return(
       
         <div style={this.state.style}>
+          <Header />
           <IfNotAuthenticated>
             <h1>Welcome</h1>
             <h2>Start creating your travel bucket list today.</h2>
             <Link to='/signIn'><button className='ui button' onClick={this.handleClick}>SIGN IN</button></Link>
           </IfNotAuthenticated>
           <IfAuthenticated>
-            <div style={{width: '90vw', height: '85vh', backgroundColor: 'rgba(0, 0, 0, 0.4)', borderRadius: '15px 15px 0px 0px', position: 'relative', left: '5vw', top: '8vh'}}>
+            <div style={{width: '90vw', height: '85vh', backgroundColor: 'rgba(30, 113, 128, 0.80)', borderRadius: '15px 15px 0px 0px', position: 'relative', left: '5vw', top: '8vh'}}>
               <Searchbar />
               <Map />
             </div>
-            <Footer />
           </IfAuthenticated>
+          <Footer />
         </div>
       
     )
