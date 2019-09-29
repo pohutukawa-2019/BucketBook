@@ -12,7 +12,14 @@ function addBucketListItem(bucketListItemTitle, selectedCountryId, userId, db = 
     .insert({title: bucketListItemTitle, country_id: selectedCountryId, user_id: userId }) 
 }
 
+function getCountryByName (countryName, db = connection) {
+  return db('Countries')
+    .select()
+    .where('name', countryName)
+}
+
 module.exports = {
   getBucketListItemsByCountry,
-  addBucketListItem
+  addBucketListItem,
+  getCountryByName
 }
