@@ -16,7 +16,7 @@ describe('Database functions for bucket list items', () => {
 
     const expected = 3
 
-    return db.getBucketListItemsByCountry('New Zealand', testDb)
+    return db.getBucketListItemsByCountry('New Zealand', 2, testDb)
       .then(items => {
         const actual = items.length
         expect(actual).toBe(expected)

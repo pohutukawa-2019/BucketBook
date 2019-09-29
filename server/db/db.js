@@ -1,21 +1,13 @@
 const connection = require('./connection')
 
-function getBucketListItems (db = connection) {
-  return db('BucketListItems')
-    .select()
-}
-
-function getBucketListItemsByCountry(selectedCountry, db = connection) {
-  console.log("Im WORKING");
+function getBucketListItemsByCountry(countryName, db = connection) {
+  // console.log("Im WORKING")
   return db('BucketListItems')
     .join('Countries', 'BucketListItems.country_id', '=', 'Countries.id')
-    // .join('Users', 'Users.id')
-    .select('Countries.name as country', 'BucketListItems.title')
-    .where('Countries.name', selectedCountry)
-    // .where('Users.id', id)
+    .select('Countries.name', 'BucketListItems.title')
+    .where('Countries.name', countryName)
 }
 
 module.exports = {
-  getBucketListItems,
   getBucketListItemsByCountry
 }
