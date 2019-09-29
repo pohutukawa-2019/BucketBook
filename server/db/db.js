@@ -1,6 +1,6 @@
 const connection = require('./connection')
 
-function getBucketListItemsByCountry(selectedCountry, db = connection) {
+function getBucketListItemsByCountry (selectedCountry, db = connection) {
   return db('BucketListItems')
     .join('Countries', 'BucketListItems.country_id', '=', 'Countries.id')
     .select()
@@ -13,15 +13,15 @@ function getCountryByName (countryName, db = connection) {
     .where('name', countryName)
 }
 
-function addBucketListItem(bucketListItemTitle, selectedCountryId, userId, db = connection) {
+function addBucketListItem (bucketListItemTitle, selectedCountryId, userId, db = connection) {
   return db('BucketListItems')
-    .insert({title: bucketListItemTitle, country_id: selectedCountryId, user_id: userId }) 
+    .insert({ title: bucketListItemTitle, country_id: selectedCountryId, user_id: userId }) 
 }
 
-function deleteBucketListItemById(id, db = connection) {
+function deleteBucketListItemById (id, db = connection) {
   return db('BucketListItems')
-  .where('id', id)
-  .delete()
+    .where('id', id)
+    .delete()
 }
 
 module.exports = {

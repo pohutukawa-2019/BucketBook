@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+import { Button } from 'semantic-ui-react'
+
 import {
   ComposableMap,
   ZoomableGroup,
   Geographies,
-  Geography,
-  Markers,
-  Marker
-} from 'react-simple-maps'
+  Geography
+} from "react-simple-maps"
 
 import { Motion, spring } from 'react-motion'
 
@@ -24,7 +24,7 @@ class Map extends Component {
     listOfCountries: [],
     center: [0, 20],
     zoom: 1,
-    activeCountry: '',
+    activeCountry: 'Where would you like to go?',
     countries: [
       { name: 'Andorra', coordinates: [1.601554, 42.546245], zoomTimes: 40 },
       { name: 'United Arab Emirates', coordinates: [53.847818, 23.424076], zoomTimes: 4 },
@@ -73,26 +73,26 @@ class Map extends Component {
   render () {
     return (
       <div className="div buttons-for-countries">
-        <div style={wrapperStyles}>
+        <div style={{float: 'right', position: 'relative', right: '1vw', bottom: '5vh', fontFamily: 'Montserrat, sans-serif'}}>
           {
-            this.state.countries.map((country, i) => (
-              <button
-                key={i}
-                className="btn px1"
-                data-country={i}
-                onClick={this.handleCountrySelection}
-              >
-                { country.name }
-              </button>
-            ))
+            // this.state.countries.map((country, i) => (
+            //   <button
+            //     key={i}
+            //     className="btn px1"
+            //     data-country={i}
+            //     onClick={this.handleCountrySelection}
+            //   >
+            //     { country.name }
+            //   </button>
+            // ))
           }
-          <button onClick={this.handleReset}>
-            { 'Reset' }
-          </button>
-          <button onClick={() => this.handleZoomIn()}>ZOOM IN</button>
-          <button onClick={() => this.handleZoomOut()}>ZOOM OUT</button>
-          <h1>{this.state.activeCountry}</h1>
+          <Button onClick={this.handleReset} style={{backgroundColor: '#333333', color: 'white'}}>
+            { "Reset" }
+          </Button>
+          <Button onClick={() => this.handleZoomIn()} onClick={() => this.handleZoomIn()} style={{backgroundColor: '#333333', color: 'white'}}>ZOOM IN</Button>     
+          <Button onClick={() => this.handleZoomOut()} style={{backgroundColor: '#333333', color: 'white'}}>ZOOM OUT</Button>
         </div>
+          <h1 style={{color: 'white', position: 'relative', left: '1vw', bottom: '6vh', fontFamily: 'Montserrat, sans-serif'}}>{this.state.activeCountry}</h1>
         <div style={wrapperStyles}>
           <Motion
             defaultStyle={{
@@ -115,8 +115,12 @@ class Map extends Component {
                 width={980}
                 height={551}
                 style={{
-                  width: '100%',
-                  height: 'auto'
+                  width: "70vw",
+                  height: "auto",
+                  position: 'relative',
+                  float: 'right',
+                  right: '8vw',
+                  bottom: '5vh'
                 }}
               >
                 <ZoomableGroup center={[x, y]} zoom={zoom}>
@@ -130,6 +134,7 @@ class Map extends Component {
                           projection={ projection }
                           countries={this.state.listOfCountries.push(geography.properties.name)}
                           onMouseEnter={() => this.getCountryName(geography.properties.name)}
+                          onMouseOut={() => this.setState({activeCountry: 'Where Next?'})}
                           onMouseMove={this.handleMove}
                           onMouseLeave={this.handleLeave}
                           style={{
@@ -141,10 +146,10 @@ class Map extends Component {
                               outline: 'none'
                             },
                             hover: {
-                              fill: '#f7b731',
-                              stroke: '#607D8B',
-                              strokeWidth: 0.1,
-                              outline: 'none'
+                              fill: "#f7b731",
+                              stroke: "#FFF",
+                              strokeWidth: 0.8,
+                              outline: "none",
                             },
                             pressed: {
                               fill: '#FF5722',
@@ -157,20 +162,6 @@ class Map extends Component {
                       </Link>
                     ))}
                   </Geographies>
-                  <Markers>
-                    {this.state.countries.map((country, i) => (
-                      <Marker key={i} marker={country}>
-                        <circle
-                          cx={0}
-                          cy={0}
-                          r={6}
-                          fill="#03fc35"
-                          opacity="0.4"
-                          stroke="#03fcf8"
-                        />
-                      </Marker>
-                    ))}
-                  </Markers>
                 </ZoomableGroup>
               </ComposableMap>
             )}
