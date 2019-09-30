@@ -16,17 +16,26 @@ class BucketList extends Component {
  render() {
     return (
       <div className='bucketlist'>
-      <AddNewBucketListItem />
-        {this.props.bucketList.map(bucketListItem => {
-          return <BucketListItem 
-            key={bucketListItem.id} 
-            id={bucketListItem.id} 
-            title={bucketListItem.title}
-            countryName={bucketListItem.name}
-            removeHandler={this.removeHandler}
-            />}
-          )}
-    </div>
+        <AddNewBucketListItem />
+        <div style={{
+          backgroundColor: 'white',
+          position: 'relative',
+          width: '20vw',
+          height: '5vh',
+          top: '5vh',
+          left: '2vw'
+        }} className='bucketlist-item-container'>
+          {this.props.bucketList.map(bucketListItem => {
+            return <BucketListItem 
+              key={bucketListItem.id} 
+              id={bucketListItem.id} 
+              title={bucketListItem.title}
+              countryName={bucketListItem.name}
+              removeHandler={this.removeHandler}
+              />}
+            )}
+        </div>
+      </div>
     )
   }
 }

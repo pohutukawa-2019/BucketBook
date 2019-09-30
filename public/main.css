@@ -2,7 +2,7 @@
   margin: 0px;
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 810px){
   .map {
     display: none;
   }
@@ -15,6 +15,17 @@
     width: 80vw !important;
     position: relative;
     left: 5vw !important;
+  }
+  .resultHeaderContainer {
+    text-align: center !important;
+  }
+  .respoResultHeader {
+    display: inline-block !important;
+    width: 80w !important;
+    position: relative !important;
+    font-family: 'Montserrat', sans-serif !important;
+    color: white !important;
+    top: 3vh !important;
   }
 }
 
@@ -31,6 +42,15 @@ button:focus {outline:0;}
 
 .ui.icon.input > i.icon:not(.link) {
   color: rgba(255, 255, 255, 1) !important;
+}
+
+.ibEjym {
+  background-color: white;
+  border-radius: 2vw;
+  width: 40vw;
+  height: 5vh;
+  display: inline-block;
+  position: relative;
 }
 
 ::placeholder {

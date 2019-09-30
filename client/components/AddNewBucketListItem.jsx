@@ -3,6 +3,7 @@ import { GridForm, ColOne, ColTwo, Button } from './Styled'
 import { connect } from 'react-redux'
 
 import { addBucketListItem } from '../actions/bucketListItems'
+import { blockStatement } from '@babel/types';
 
 class AddNewBucketListItem extends Component {
   state = {
@@ -16,24 +17,40 @@ class AddNewBucketListItem extends Component {
   }
 
   handleClick = () => {
-      this.props.addBucketListItem({
-          title: this.state.title,
-          countryId: this.props.selectedCountry.id,
-          countryName: this.props.selectedCountry.name
-      })
+  this.props.addBucketListItem({
+      title: this.state.title,
+      countryId: this.props.selectedCountry.id,
+      countryName: this.props.selectedCountry.name
+  })
 }
     
   render () {
     return (
       <div>
-        <GridForm>
-          <ColOne>To do:</ColOne>
+        <GridForm style={{
+          position: 'relative',
+          left: '2vw',
+          top: '2vh',
+          display: 'inline-block',
+          width: '60vw'
+          }}>
           <ColTwo name='title'
             placeholder='Enter it here'
             value={this.state.title}
             onChange={this.handleChange}/>
 
-          <Button type='button' onClick={this.handleClick}>Add item</Button>
+          <Button style={{
+            position: 'relative',
+            backgroundColor: 'rgba(0, 0, 0, 0)',
+            width: '3vw',
+            height: '3vw',
+            borderStyle: 'none',
+            display: 'inline-block',
+            top: '1vh',
+            color: 'orange',
+            fontSize: '3vw',
+            cursor: 'pointer'
+          }} type='button' onClick={this.handleClick}>+</Button>
         </GridForm>
       </div>
     )
