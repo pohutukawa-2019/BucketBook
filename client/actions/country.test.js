@@ -1,5 +1,5 @@
 import {
-  getCountry
+  getCountry,
   getCountryPending,
   getCountrySuccess,
   GET_COUNTRY_PENDING,
@@ -34,6 +34,10 @@ describe('country action tests', () => {
     const dispatch = jest.fn()
     const selectedCountry = 'Zambia'
 
-    
+    return getCountry(selectedCountry)(dispatch)
+      .then(() => {
+        expect(dispatch.mock.calls[0][0].type).toBe(GET_COUNTRY_PENDING)
+        expect(dispatch.mock.calls[1][0].type).toBe(GET_COUNTRY_SUCCESS)
+      })
   })
 })
