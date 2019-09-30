@@ -86,7 +86,7 @@ class SignIn extends Component {
       <div style={this.state.style}>
         <Header />
         <GridForm style={this.gridStyle}>
-          <img src={this.state.picture} alt='Missing'
+          <img className='picture' src={this.state.picture} alt='Missing'
             style={{
               borderRadius: '50%',
               width: '14vw',

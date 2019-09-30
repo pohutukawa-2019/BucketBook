@@ -2,7 +2,16 @@
   margin: 0px;
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 950px) {
+  .picture {
+    width: 20vw !important;
+    height: 20vw !important;
+    position: absolute !important;
+    right: 10vw !important;
+  }
+}
+
+@media screen and (max-width: 800px) {
   .map {
     display: none;
   }
