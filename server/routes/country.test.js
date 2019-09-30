@@ -10,14 +10,14 @@ beforeEach(() => {
 })
 
 describe('Country name routes', () => {
-  it('GET / returns a country by name', () => {
-    const expected = 241
+  it('GET /countryName returns a country by name', () => {
+    const expected = 'Zambia'
 
     return request(server)
-      .get('/api/v1/country/china')
+      .get('/api/v1/country/Zambia')
       .then(res => {
-        const count = res.body.length
-        expect(count).toBe(expected)
+        const countryName = res.body.name
+        expect(countryName).toBe(expected)
       })
   })
 })
