@@ -33,21 +33,18 @@ router.post('/:selectedCountry', tokenDecoder, (req, res) => {
     .catch(err => res.status(500).send(err.message))
 })
 
-router.delete('/:selectedCountry', tokenDecoder, async (req, res) => {
+router.delete('/:selectedCountry', tokenDecoder, (req, res) => {
   const selectedCountry = req.params.selectedCountry
   const bucketListId = req.body.id
   const userId = Number(req.user.id)
 
-  try {
-    db.deleteBucketListItemById(bucketListId)
-      .then(() => db.getBucketListItemsByCountry(selectedCountry))
-      .then(countryItems => countryItems.filter(item => {
-        return item.user_id === userId
-      }
-      )).then(bucketList => res.status(200).json(bucketList))
-  } catch (err) {
-    res.status(500).send(err.message)
-  }
+  db.deleteBucketListItemById(bucketListId)
+    .then(() => db.getBucketListItemsByCountry(selectedCountry))
+    .then(countryItems => countryItems.filter(item => {
+      return item.user_id === userId
+    }
+    )).then(bucketList => res.status(200).json(bucketList))
+    .catch(err => res.status(500).send(err.message))
 })
 
 module.exports = router
