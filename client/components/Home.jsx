@@ -22,36 +22,6 @@ class Home extends React.Component {
     }
   }
 
-  // randomPhoto = (min, max) => {
-  //   min = Math.ceil(min)
-  //   max = Math.floor(max)
-  //   return Math.floor(Math.random() * (max - min)) + min
-  // }
-
-
-  // componentDidMount () {
-  //   const random = this.randomPhoto(1, 10)
-  //   fetchBackgroundImage()
-  //     .then(res => {
-  //       this.setState({style: {
-  //         backgroundSize: '100%, 100%',
-  //         backgroundPosition: 'center',
-  //         height: '100vh',
-  //         width: '100vw',
-  //         backgroundImage: `url(${res.body.results[random].urls.full})`
-  //       }})
-  //     })
-  //   if (this.state.style.backgroundImage === "") {
-  //     this.setState({style: {
-  //       backgroundSize: '100%, 100%',
-  //         backgroundPosition: 'center',
-  //         height: '100vh',
-  //         width: '100vw',
-  //         backgroundImage: 'url(https://images.unsplash.com/photo-1544945582-052b29cd29e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1488&q=80)'
-  //     }})
-  //   }
-  // }
-
   handleClick = () => {
 
   }
@@ -69,7 +39,8 @@ class Home extends React.Component {
             </div>          
           </IfNotAuthenticated>
           <IfAuthenticated>
-            <div style={{width: '90vw', height: '85vh', backgroundColor: 'rgba(30, 113, 128, 0.80)', borderRadius: '15px 15px 0px 0px', position: 'relative', left: '5vw', top: '8vh'}}>
+            <div className='resultHeaderContainer'style={{width: '90vw', height: '85vh', backgroundColor: 'rgba(30, 113, 128, 0.80)', borderRadius: '15px 15px 0px 0px', position: 'relative', left: '5vw', top: '8vh'}}>
+              <h1 className='respoResultHeader' style={{display: 'none'}}>Where would you like to go?</h1>
               <Searchbar />
               <Map />
             </div>

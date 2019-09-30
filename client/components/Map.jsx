@@ -92,7 +92,7 @@ class Map extends Component {
           <Button onClick={() => this.handleZoomIn()} onClick={() => this.handleZoomIn()} style={{backgroundColor: '#333333', color: 'white'}}>ZOOM IN</Button>     
           <Button onClick={() => this.handleZoomOut()} style={{backgroundColor: '#333333', color: 'white'}}>ZOOM OUT</Button>
         </div>
-          <h1 style={{color: 'white', position: 'relative', left: '1vw', bottom: '6vh', fontFamily: 'Montserrat, sans-serif'}}>{this.state.activeCountry}</h1>
+        <h1 style={{color: 'white', position: 'relative', left: '1vw', bottom: '6vh', fontFamily: 'Montserrat, sans-serif'}}>{this.state.activeCountry}</h1>
         <div style={wrapperStyles}>
           <Motion
             defaultStyle={{
