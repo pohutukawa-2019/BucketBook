@@ -11,7 +11,7 @@ beforeEach(() => {
 afterEach(() => env.cleanup(testDb))
 
 describe('Database functions for bucketlist items', () => {
-  it('getBucketListItemsByCountry returns bucketlist items by country', () => {
+  it('getBucketListItemsByCountry returns an array of bucketlist items by country', () => {
     expect.assertions(1)
 
     const expected = 2
