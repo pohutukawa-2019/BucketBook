@@ -7,6 +7,10 @@ router.use(express.json())
 
 const tokenDecoder = getTokenDecoder(false)
 
+router.get('/', tokenDecoder, (req, res) => {
+  res.sendStatus(200)
+})
+
 router.get('/:selectedCountry', tokenDecoder, (req, res) => {
   const selectedCountry = req.params.selectedCountry
   const userId = Number(req.user.id)
@@ -18,6 +22,7 @@ router.get('/:selectedCountry', tokenDecoder, (req, res) => {
 })
 
 router.post('/:selectedCountry', tokenDecoder, async (req, res) => {
+  res.sendStatus(200)
   const bucketListItemTitle = req.body.title
   const countryId = req.body.country_id
   const userId = Number(req.user.id)
