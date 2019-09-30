@@ -15,6 +15,11 @@ export const ColTwo = styled.input`
   grid-column: 2;
 `
 
+export const ColThree = styled.input`
+  grid-column: 2;
+  
+`
+
 export const Button = styled.button`
   grid-column: 2;
   width: 50%;

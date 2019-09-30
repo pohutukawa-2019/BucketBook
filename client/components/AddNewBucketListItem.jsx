@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { GridForm, ColOne, ColTwo, Button } from './Styled'
+import { GridForm, ColOne, ColThree, Button } from './Styled'
 import { connect } from 'react-redux'
 
 import { addBucketListItem } from '../actions/bucketListItems'
@@ -34,10 +34,11 @@ class AddNewBucketListItem extends Component {
           display: 'inline-block',
           width: '60vw'
           }}>
-          <ColTwo name='title'
+          <ColThree name='title'
             placeholder='Enter it here'
             value={this.state.title}
             onChange={this.handleChange}/>
+
 
           <Button style={{
             position: 'relative',

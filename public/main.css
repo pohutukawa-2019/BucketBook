@@ -69,15 +69,6 @@ button:focus {outline:0;}
   color: rgba(255, 255, 255, 1) !important;
 }
 
-/* .ibEjym {
-  background-color: white;
-  border-radius: 2vw;
-  width: 40vw;
-  height: 5vh;
-  display: inline-block;
-  position: relative;
-} */
-
 ::placeholder {
   color: white;
   opacity: 1;

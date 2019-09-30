@@ -32,7 +32,7 @@ class CountryPage extends React.Component {
     fetchBackgroundImageByCountry(selectedCountry)
       .then(res => {
         this.setState({ style: {
-          backgroundSize: '100%, 100%',
+          backgroundSize: 'cover',
           backgroundPosition: 'center',
           height: '100vh',
           width: '100vw',
