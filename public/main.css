@@ -16,6 +16,22 @@
     position: relative;
     left: 5vw !important;
   }
+  .signin {
+    font-size: 2vw !important;
+    width: 20vw !important;
+  }
+  .welcome {
+    font-size: 4rem !important;
+    display: block !important;
+    float: left !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .signin {
+    font-size: 3vw !important;
+    width: 30vw !important;
+  }
 }
 
 input:focus {outline:0;}

@@ -13,7 +13,7 @@ class Header extends Component {
           <Menu.Menu position='left'>
             <Link to='/'><Menu.Item
             style={{ width: '5vw' }}
-            /><img src={'/images/bb_logo_lscape_white.svg'} style={{position: 'relative', left: '2vw', width: '7vw', top: '-1vh'}}></img></Link>
+            /><img src={'/images/bb_logo_lscape_white.svg'} style={{position: 'relative', left: '2vw', width: '150px', top: '-10px'}}></img></Link>
           </Menu.Menu>
           <Menu.Menu position='right'>
             <IfAuthenticated>
