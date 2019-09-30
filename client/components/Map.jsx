@@ -72,7 +72,7 @@ class Map extends Component {
 
   render () {
     return (
-      <div className="div buttons-for-countries">
+      <div className="div map buttons-for-countries">
         <div style={{float: 'right', position: 'relative', right: '1vw', bottom: '5vh', fontFamily: 'Montserrat, sans-serif'}}>
           {
             // this.state.countries.map((country, i) => (

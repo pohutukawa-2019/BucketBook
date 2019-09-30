@@ -2,6 +2,22 @@
   margin: 0px;
 }
 
+@media screen and (max-width: 800px){
+  .map {
+    display: none;
+  }
+  .ui.input > input {
+    width: 80vw !important;
+    position: relative;
+    left: 5vw;
+  }
+  .results {
+    width: 80vw !important;
+    position: relative;
+    left: 5vw !important;
+  }
+}
+
 input:focus {outline:0;}
 
 button:focus {outline:0;}

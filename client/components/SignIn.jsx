@@ -89,8 +89,8 @@ class SignIn extends Component {
           <img src={this.state.picture} alt='Missing'
             style={{
               borderRadius: '50%',
-              width: '220px',
-              height: '220px',
+              width: '14vw',
+              height: '14vw',
               position: 'absolute',
               left: '11vw',
               top: '9vh',
