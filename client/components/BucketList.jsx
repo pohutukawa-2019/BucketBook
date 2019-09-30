@@ -1,18 +1,47 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import BucketListItem from './BucketListItem'
 import AddNewBucketListItem from './AddNewBucketListItem'
 
-const BucketList = (props) => {
-  return(
-    <div className='bucketlist'>
-      {/* {props.bucketListItems.map(bucketListItem => <BucketListItem key={bucketListItem.id} bucketListItem={bucketListItem}/>)} */}
+import { deleteBucketListItem } from '../actions/bucketListItems'
+
+
+
+class BucketList extends Component { 
+  removeHandler = (id, selectedCountry) => {
+    this.props.deleteBucketListItem(id, selectedCountry) 
+  }
+
+ render() {
+    return (
+      <div className='bucketlist'>
       <AddNewBucketListItem />
-      <BucketListItem />
-      <BucketListItem />
-      <BucketListItem />
+        {this.props.bucketList.map(bucketListItem => {
+          return <BucketListItem 
+            key={bucketListItem.id} 
+            id={bucketListItem.id} 
+            title={bucketListItem.title}
+            countryName={bucketListItem.name}
+            removeHandler={this.removeHandler}
+            />}
+          )}
     </div>
-  )
+    )
+  }
 }
 
-export default BucketList
+const mapStateToProps = (state) => {
+  return {
+    selectedCountry: state.selectedCountry,
+    bucketList: state.bucketList
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteBucketListItem: (id, selectedCountry) => dispatch(deleteBucketListItem(id, selectedCountry))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BucketList)

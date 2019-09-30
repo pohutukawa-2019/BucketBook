@@ -19,12 +19,17 @@ router.get('/:selectedCountry', tokenDecoder, (req, res) => {
 
 router.post('/:selectedCountry', tokenDecoder, async (req, res) => {
   const bucketListItemTitle = req.body.title
-  const countryId = req.body.country_id
+  const countryId = req.body.countryId
+  const selectedCountry = req.params.selectedCountry
   const userId = Number(req.user.id)
 
   try {
     db.addBucketListItem(bucketListItemTitle, countryId, userId)
-      .then(bucketListID => res.status(200).json(bucketListID))
+      .then(() => db.getBucketListItemsByCountry(selectedCountry))
+      .then(countryItems => countryItems.filter(item => {
+        return item.user_id === userId
+      }
+      )).then(bucketListID => res.status(200).json(bucketListID))
   } catch (err) {
     res.status(500).send(err.message)
   }

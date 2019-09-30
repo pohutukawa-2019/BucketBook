@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { GridForm, ColOne, ColTwo, Button } from './Styled'
 import { connect } from 'react-redux'
 
+import { addBucketListItem } from '../actions/bucketListItems'
 
 class AddNewBucketListItem extends Component {
   state = {
@@ -15,8 +16,10 @@ class AddNewBucketListItem extends Component {
   }
 
   handleClick = () => {
-      addNewBuckListItem({
-          title: this.state.title
+      this.props.addBucketListItem({
+          title: this.state.title,
+          countryId: this.props.selectedCountry.id,
+          countryName: this.props.selectedCountry.name
       })
 }
     
@@ -37,12 +40,16 @@ class AddNewBucketListItem extends Component {
   }
 }
 
-function mapStateToProps (state) {
+const mapStateToProps = (state) => {
     return {
-        form: {
-          title: ''
-        }
+      selectedCountry: state.selectedCountry
     }
 }
 
-export default connect(mapStateToProps)(AddNewBucketListItem)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addBucketListItem: (bucketListItem) => dispatch(addBucketListItem(bucketListItem))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddNewBucketListItem)
