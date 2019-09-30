@@ -2,7 +2,16 @@
   margin: 0px;
 }
 
-@media screen and (max-width: 810px){
+@media screen and (max-width: 950px) {
+  .picture {
+    width: 20vw !important;
+    height: 20vw !important;
+    position: absolute !important;
+    right: 10vw !important;
+  }
+}
+
+@media screen and (max-width: 800px) {
   .map {
     display: none;
   }
@@ -27,6 +36,22 @@
     color: white !important;
     top: 3vh !important;
   }
+  .signin {
+    font-size: 2vw !important;
+    width: 20vw !important;
+  }
+  .welcome {
+    font-size: 4rem !important;
+    display: block !important;
+    float: left !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .signin {
+    font-size: 3vw !important;
+    width: 30vw !important;
+  }
 }
 
 input:focus {outline:0;}
@@ -44,14 +69,14 @@ button:focus {outline:0;}
   color: rgba(255, 255, 255, 1) !important;
 }
 
-.ibEjym {
+/* .ibEjym {
   background-color: white;
   border-radius: 2vw;
   width: 40vw;
   height: 5vh;
   display: inline-block;
   position: relative;
-}
+} */
 
 ::placeholder {
   color: white;
