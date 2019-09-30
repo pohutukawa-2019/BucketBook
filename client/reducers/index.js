@@ -1,5 +1,9 @@
 import { combineReducers } from 'redux'
 
-export default combineReducers({
+import selectedCountry from './country'
+import bucketList from './bucketListItems'
 
+export default combineReducers({
+  selectedCountry,
+  bucketList  
 })

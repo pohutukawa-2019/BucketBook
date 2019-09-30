@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 const BucketListItem = (props) => {
   return(
     <div className='bucketlist-item'>
-      <h4>Test</h4>
-      <p>Testerosa</p>
+      <p>{props.title}</p> 
+      <button onClick={() => props.removeHandler(props.id, props.countryName)}>X</button>
     </div>
   )
 }
