@@ -29,6 +29,10 @@ class CountryPage extends React.Component {
   componentDidMount () {
     const selectedCountry = this.props.match.params.selectedCountry
     const random = this.randomPhoto(1, 10)
+
+    this.props.getCountry(selectedCountry)
+    this.props.getBucketList(selectedCountry)
+
     fetchBackgroundImageByCountry(selectedCountry)
       .then(res => {
         this.setState({ style: {
@@ -39,8 +43,7 @@ class CountryPage extends React.Component {
           backgroundImage: `url(${res.body.results[random].urls.full})`
         } })
       })
-    this.props.getCountry(selectedCountry)
-    this.props.getBucketList(selectedCountry)
+
   }
 
   render () {
@@ -68,7 +71,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getCountry: selectedCountry => dispatch(getCountry(selectedCountry)),
     getBucketList: selectedCountry => dispatch(getBucketList(selectedCountry))
-
   }
 }
 
