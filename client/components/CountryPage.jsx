@@ -4,7 +4,10 @@ import { connect } from 'react-redux'
 import BucketList from './BucketList'
 import Header from './Header'
 import Footer from './Footer'
+
 import { getCountry } from '../actions/country'
+import { getBucketList } from '../actions/bucketListItems'
+
 import { fetchBackgroundImageByCountry } from '../api/fetchBackgroundImage'
 
 class CountryPage extends React.Component {
@@ -37,6 +40,7 @@ class CountryPage extends React.Component {
         } })
       })
     this.props.getCountry(selectedCountry)
+    this.props.getBucketList(selectedCountry)
   }
 
   render () {
@@ -62,7 +66,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCountry: selectedCountry => dispatch(getCountry(selectedCountry))
+    getCountry: selectedCountry => dispatch(getCountry(selectedCountry)),
+    getBucketList: selectedCountry => dispatch(getBucketList(selectedCountry))
+
   }
 }
 
