@@ -1,3 +1,28 @@
 * {
-  margin: 0px
+  margin: 0px;
+}
+
+input:focus {outline:0;}
+
+button:focus {outline:0;}
+
+.ui.input > input {
+  background-color: rgba(30, 113, 128, 0.76) !important;
+  border-color: white !important;
+  color: white !important;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.ui.icon.input > i.icon:not(.link) {
+  color: rgba(255, 255, 255, 1) !important;
+}
+
+::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+.results {
+  max-height: 65vh;
+  overflow-y: auto;
 }
