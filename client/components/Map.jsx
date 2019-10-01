@@ -47,70 +47,46 @@ class Map extends Component {
     })
   }
 
-<<<<<<< HEAD
   handleZoomIn() {
-    this.setState({
-      zoom: this.state.zoom + 1
-    })
-||||||| merged common ancestors
-  handleZoomIn () {
-    this.setState({
-      zoom: this.state.zoom + 1
-    })
-=======
-  handleZoomIn () {
-    if(this.state.zoom > 10) {
+    if (this.state.zoom > 10) {
       this.setState({
         zoom: this.state.zoom + 6,
       })
-     } else if(this.state.zoom > 5) {
+    } else if (this.state.zoom > 5) {
       this.setState({
         zoom: this.state.zoom + 3,
-      })} else {
+      })
+    } else {
       this.setState({
         zoom: this.state.zoom + 1,
       })
     }
->>>>>>> d708c9347d8c82e93e3e97a101f24a83c3092571
   }
 
-<<<<<<< HEAD
   handleZoomOut() {
-    if (this.state.zoom !== 1) {
-||||||| merged common ancestors
-  handleZoomOut () {
-    if (this.state.zoom !== 1) {
-=======
-  handleZoomOut () {
-    if(this.state.zoom > 10) {
+    if (this.state.zoom > 10) {
       this.setState({
         zoom: this.state.zoom - 6,
       })
-     } else if(this.state.zoom > 5) {
->>>>>>> d708c9347d8c82e93e3e97a101f24a83c3092571
+    } else if (this.state.zoom > 5) {
       this.setState({
         zoom: this.state.zoom - 3,
       })
-      }
-      else if(this.state.zoom > 1){
-        this.setState({
+    }
+    else if (this.state.zoom > 1) {
+      this.setState({
         zoom: this.state.zoom - 1,
-      })}
-      else if(this.state.zoom !== 1) {
-        this.setState({
+      })
+    }
+    else if (this.state.zoom !== 1) {
+      this.setState({
         zoom: this.state.zoom - 1,
       })
     }
   }
 
-<<<<<<< HEAD
-  getCountryName(countryName) {
-||||||| merged common ancestors
-  getCountryName (countryName) {
-=======
 
-  getCountryName (countryName) {
->>>>>>> d708c9347d8c82e93e3e97a101f24a83c3092571
+  getCountryName(countryName) {
     this.setState({
       activeCountry: countryName
     })
@@ -172,15 +148,7 @@ class Map extends Component {
                 }}
               >
                 <ZoomableGroup center={[x, y]} zoom={zoom}>
-<<<<<<< HEAD
                   <Geographies geography={'/countries-50m.json'}>
-
-||||||| merged common ancestors
-                  <Geographies geography={ '/countries-50m.json' }>
-
-=======
-                  <Geographies geography={ '/countries-50m.json' }>
->>>>>>> d708c9347d8c82e93e3e97a101f24a83c3092571
                     {(geographies, projection) => geographies.map(geography => (
                       <Link key={`${geography.properties.name}`} to={`/country/${geography.properties.name}`}>
                         <Geography
