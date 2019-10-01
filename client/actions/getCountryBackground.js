@@ -27,10 +27,8 @@ export function getBackgroundByCountry (countryName) {
     dispatch(getBackgroundPending())
     return fetchBackgroundImageByCountry(countryName)
       .then(apiResponse => {
-        setTimeout(() => {
-          const random = randomPhoto(1, 5)
-          dispatch(getBackgroundSuccess(apiResponse.body.results[random].urls.full))
-        }, 5000)
+        const random = randomPhoto(1, 5)
+        dispatch(getBackgroundSuccess(apiResponse.body.results[random].urls.full))
       })
   }
 }
