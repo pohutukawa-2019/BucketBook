@@ -62,7 +62,8 @@ class CountryPage extends React.Component {
 const mapStateToProps = state => {
   return {
     selectedCountry: state.selectedCountry,
-    background: state.background
+    background: state.background,
+    waiting: state.waiting
   }
 }
 
