@@ -58,23 +58,23 @@ export function getBucketList (countryName) {
   }
 }
 
-export function deleteBucketListItem (bucketListItemId, selectedCountry){
+export function deleteBucketListItem (bucketListItemId, selectedCountry) {
   return dispatch => {
     dispatch(deleteBucketListItemPending())
     return removeBucketListItemsById(bucketListItemId, selectedCountry)
       .then(updatedBucketListArr => {
         dispatch(deleteBucketListItemSuccess(updatedBucketListArr))
       })
-    }
   }
+}
 
-  export function addBucketListItem (bucketListItem){
-    const { title, countryId, countryName } = bucketListItem
-    return dispatch => {
-      dispatch(addBucketListItemPending())
-      return appendBucketListItems(countryId, title, countryName)
-        .then(appendedBucketListArr => {
-          dispatch(addBucketListItemSuccess(appendedBucketListArr))
-        })
-      }
-    }
+export function addBucketListItem (bucketListItem) {
+  const { title, countryId, countryName } = bucketListItem
+  return dispatch => {
+    dispatch(addBucketListItemPending())
+    return appendBucketListItems(countryId, title, countryName)
+      .then(appendedBucketListArr => {
+        dispatch(addBucketListItemSuccess(appendedBucketListArr))
+      })
+  }
+}
