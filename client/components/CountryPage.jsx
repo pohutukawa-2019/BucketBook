@@ -9,8 +9,6 @@ import { getCountry } from '../actions/country'
 import { getBucketList } from '../actions/bucketListItems'
 import { getBackgroundByCountry } from '../actions/getCountryBackground'
 
-// import { fetchBackgroundImageByCountry } from '../api/fetchBackgroundImage'
-
 class CountryPage extends React.Component {
   state = {
     style: {
