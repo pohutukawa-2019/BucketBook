@@ -1,23 +1,32 @@
 const request = require('supertest')
+const auth = require('authenticare/testing/server')
 
 const server = require('../server')
 const db = require('../db/db')
 
 jest.mock('../db/db')
+jest.mock('authenticare/server')
 
 beforeEach(() => {
   db.reset()
 })
 
-describe('Country name routes', () => {
-  it('POST / returns a country by name', () => {
-    const expected = 241
+describe('Bucketlist item routes', () => {
+  it('GET /:selectedCountry returns bucketlist items by selected country', () => {
+    const expected = ['Run', 'Sleep']
+    // const testToken = auth.createTestToken({
+    //   id: 4,
+    //   username: 'testuser'
+    // })
+    auth.allowTokens()
 
     return request(server)
-      .get('/api/v1/country/china')
+      .get('/api/v1/bucketlist/Zambia')
+      // .set({ Authorization: `bearer ${testToken}` })
       .then(res => {
-        const count = res.body.length
-        expect(count).toBe(expected)
+        console.log(res.text)
+        const bucketlistItem = res.body
+        expect(bucketlistItem).toBe(expected)
       })
   })
 })

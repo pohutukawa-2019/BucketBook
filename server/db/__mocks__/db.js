@@ -2,28 +2,40 @@ module.exports = {
   reset,
   getBucketListItemsByCountry,
   getCountryByName
+  // addBucketListItem
+  // deleteBucketListItemById
 }
 
 const bucketListItems = [
   {
     id: 1,
     title: 'Swim',
-    country: 'Zimbabwe'
+    country: 'Zimbabwe',
+    userId: 1
   },
   {
     id: 2,
     title: 'Run',
-    country: 'Zambia'
+    country: 'Zambia',
+    userId: 2
   },
   {
     id: 3,
     title: 'Jump',
-    country: 'Yemen'
+    country: 'Zambia',
+    userId: 3
   },
   {
     id: 4,
     title: 'Sleep',
-    country: 'Vietnam'
+    country: 'Zambia',
+    userId: 2
+  },
+  {
+    id: 5,
+    title: 'Hop',
+    country: 'Zimbabwe',
+    userId: 2
   }
 ]
 
@@ -59,6 +71,11 @@ function getCountryByName (countryName) {
 }
 
 async function getBucketListItemsByCountry (selectedCountry) {
-  return Promise.resolve(listItems.filter(listItem => listItem.selectedCountry === selectedCountry))
+  return Promise.resolve(listItems.filter(listItem => listItem.country === selectedCountry))
 }
 
+// function addBucketListItem (bucketListItemTitle, selectedCountryId, userId) {
+//   listItems.push(bucketListItemTitle, selectedCountryId, userId)
+//   const newListItem = listItems.pop()
+//   return Promise.resolve(listitem.id)
+// }
