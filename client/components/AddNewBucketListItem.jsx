@@ -34,10 +34,12 @@ class AddNewBucketListItem extends Component {
           display: 'inline-block',
           width: '60vw'
           }}>
+          <div className='input-container'>
           <ColThree name='title'
             placeholder='Enter it here'
             value={this.state.title}
             onChange={this.handleChange}/>
+          </div>
 
 
           <Button style={{

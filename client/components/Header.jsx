@@ -20,7 +20,7 @@ class Header extends Component {
               <Link to='/'><Menu.Item
                 name='SIGN OUT'
                 onClick={logOff}
-                style={{color: 'white', borderStyle: 'solid', borderColor: 'white', borderRadius: '5px', position: 'relative', right: '2vw', top: '2vh', borderWidth: '3px', fontWeight: '900', backgroundColor: '#EEA900'}}
+                style={{color: 'white', borderStyle: 'solid', borderColor: 'white', borderRadius: '5px', position: 'relative', right: '2vw', top: '2vh', borderWidth: '2px', fontWeight: '900', backgroundColor: '#FF9900'}}
               /></Link>
             </IfAuthenticated>
             <IfNotAuthenticated>

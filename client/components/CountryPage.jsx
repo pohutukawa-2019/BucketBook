@@ -57,14 +57,14 @@ class CountryPage extends React.Component {
               position: 'relative',
               left: '5vw',
               top: '6vh'
-            }} className='bucketlist-container' >
+            }} className='bucketlist-container'>
           <div className='bucketlist-header'>
             <h1 style={{
               position: 'relative',
               left: '3vw',
               top: '2vh',
               fontWeight: '100'
-            }}>Bucket List</h1>
+            }}>Start adding to your list</h1>
             <h2 style={{ float: 'right', bottom: '5.5vh', right: '4vw', position: 'relative' }}>{this.props.match.params.selectedCountry}</h2>
           </div>
           <BucketList />

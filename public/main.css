@@ -78,3 +78,11 @@ button:focus {outline:0;}
   max-height: 65vh;
   overflow-y: auto;
 }
+
+.bucketlist-header {
+  background-color: orange;
+}
+
+.input-container {
+  display: inline-block;
+}
