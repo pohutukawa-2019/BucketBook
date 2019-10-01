@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import BucketList from './BucketList'
 import Header from './Header'
 import Footer from './Footer'
+import Waiting from './Waiting'
 
 import { getCountry } from '../actions/country'
 import { getBucketList } from '../actions/bucketListItems'
@@ -47,10 +48,11 @@ class CountryPage extends React.Component {
     return (
       <div className='bucketlist-container' style={this.state.style}>
         <Header />
+        <Waiting /> 
         <div className='bucketlist-header'>
           <h1>Add an item to<br></br> your bucket list.</h1>
           <h2 style={{ float: 'right', top: '-3vh', right: '10vw', position: 'relative' }}>{this.props.match.params.selectedCountry}</h2>
-        </div>
+        </div>  
         <BucketList />
         <Footer />
       </div>
