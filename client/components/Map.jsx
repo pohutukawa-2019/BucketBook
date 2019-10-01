@@ -11,6 +11,7 @@ import {
 } from "react-simple-maps"
 
 import { Motion, spring } from 'react-motion'
+import { thisExpression } from '@babel/types'
 
 const wrapperStyles = {
   width: '100%',
@@ -25,12 +26,7 @@ class Map extends Component {
     center: [0, 20],
     zoom: 1,
     activeCountry: 'Where would you like to go?',
-    countries: [
-      { name: 'Andorra', coordinates: [1.601554, 42.546245], zoomTimes: 40 },
-      { name: 'United Arab Emirates', coordinates: [53.847818, 23.424076], zoomTimes: 4 },
-      { name: 'Afghanistan', coordinates: [67.709953, 33.93911], zoomTimes: 2 }
-      //  https://developers.google.com/public-data/docs/canonical/countries_csv grabbing coordinates from here! lol long process.
-    ]
+    dynamicStrokeWidth: 0.45
   }
   handleCountrySelection = this.handleCountrySelection.bind(this)
   handleReset = this.handleReset.bind(this)
@@ -46,25 +42,75 @@ class Map extends Component {
   handleReset() {
     this.setState({
       center: [0, 20],
-      zoom: 1
+      zoom: 1,
+      dynamicStrokeWidth: 0.8
     })
   }
 
+<<<<<<< HEAD
   handleZoomIn() {
     this.setState({
       zoom: this.state.zoom + 1
     })
+||||||| merged common ancestors
+  handleZoomIn () {
+    this.setState({
+      zoom: this.state.zoom + 1
+    })
+=======
+  handleZoomIn () {
+    if(this.state.zoom > 10) {
+      this.setState({
+        zoom: this.state.zoom + 6,
+      })
+     } else if(this.state.zoom > 5) {
+      this.setState({
+        zoom: this.state.zoom + 3,
+      })} else {
+      this.setState({
+        zoom: this.state.zoom + 1,
+      })
+    }
+>>>>>>> d708c9347d8c82e93e3e97a101f24a83c3092571
   }
 
+<<<<<<< HEAD
   handleZoomOut() {
     if (this.state.zoom !== 1) {
+||||||| merged common ancestors
+  handleZoomOut () {
+    if (this.state.zoom !== 1) {
+=======
+  handleZoomOut () {
+    if(this.state.zoom > 10) {
       this.setState({
-        zoom: this.state.zoom - 1
+        zoom: this.state.zoom - 6,
+      })
+     } else if(this.state.zoom > 5) {
+>>>>>>> d708c9347d8c82e93e3e97a101f24a83c3092571
+      this.setState({
+        zoom: this.state.zoom - 3,
+      })
+      }
+      else if(this.state.zoom > 1){
+        this.setState({
+        zoom: this.state.zoom - 1,
+      })}
+      else if(this.state.zoom !== 1) {
+        this.setState({
+        zoom: this.state.zoom - 1,
       })
     }
   }
 
+<<<<<<< HEAD
   getCountryName(countryName) {
+||||||| merged common ancestors
+  getCountryName (countryName) {
+=======
+
+  getCountryName (countryName) {
+>>>>>>> d708c9347d8c82e93e3e97a101f24a83c3092571
     this.setState({
       activeCountry: countryName
     })
@@ -126,8 +172,15 @@ class Map extends Component {
                 }}
               >
                 <ZoomableGroup center={[x, y]} zoom={zoom}>
+<<<<<<< HEAD
                   <Geographies geography={'/countries-50m.json'}>
 
+||||||| merged common ancestors
+                  <Geographies geography={ '/countries-50m.json' }>
+
+=======
+                  <Geographies geography={ '/countries-50m.json' }>
+>>>>>>> d708c9347d8c82e93e3e97a101f24a83c3092571
                     {(geographies, projection) => geographies.map(geography => (
                       <Link key={`${geography.properties.name}`} to={`/country/${geography.properties.name}`}>
                         <Geography
@@ -143,19 +196,15 @@ class Map extends Component {
                               fill: '#ECEFF1',
                               fillOpacity: 0,
                               stroke: '#FFF',
-                              strokeWidth: 0.8,
+                              strokeWidth: this.state.dynamicStrokeWidth,
                               outline: 'none'
                             },
                             hover: {
                               fill: "#f7b731",
-                              stroke: "#FFF",
-                              strokeWidth: 0.8,
                               outline: "none",
                             },
                             pressed: {
                               fill: '#FF5722',
-                              stroke: '#607D8B',
-                              strokeWidth: 0.1,
                               outline: 'none'
                             }
                           }}
