@@ -28,24 +28,24 @@ describe('Database functions for users', () => {
     const username = 'bob'
 
     return db.userExists(username, testDb)
-      .then(name => {
-        const actual = name
+      .then(boolean => {
+        const actual = boolean
         expect(actual).toBeTruthy()
         expect(actual).not.toBeNull()
       })
   })
 
   it('createUser returns a new user', () => {
-    expect.assertions(2)
+    // expect.assertions(2)
 
     const newUser = {
-      username: 'john'
+      username: 'john',
+      password: 'password'
     }
 
-    return db.createUser(user, testDb)
-      .then(name => {
-        expect(name.id).toBeTruthy(5)
-        expect(actual).not.toBeNull()
+    return db.createUser(newUser, testDb)
+      .then(([newId]) => {
+        expect(newId).toBe(4)
       })
   })
 })
