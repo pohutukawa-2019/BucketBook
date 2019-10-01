@@ -49,12 +49,15 @@ class CountryPage extends React.Component {
     return (
       <div className='bucketlist-container' style={this.state.style}>
         <Header />
-        <Waiting /> 
-        <div className='bucketlist-header'>
+      {this.props.waiting && <Waiting />} 
+      {this.props.waiting === false && <><div className='bucketlist-header'>
           <h1>Add an item to<br></br> your bucket list.</h1>
           <h2 style={{ float: 'right', top: '-3vh', right: '10vw', position: 'relative' }}>{this.props.match.params.selectedCountry}</h2>
-        </div>  
-        <BucketList />
+        </div>
+        <BucketList /> </> }
+       
+       
+
         <Footer />
       </div>
     )

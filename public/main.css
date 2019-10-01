@@ -26,3 +26,9 @@ button:focus {outline:0;}
   max-height: 65vh;
   overflow-y: auto;
 }
+
+.loadingIMG {
+  position: relative;
+  top: 35vh;
+  left: 45vw;
+}
