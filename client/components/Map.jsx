@@ -31,7 +31,7 @@ class Map extends Component {
   handleCountrySelection = this.handleCountrySelection.bind(this)
   handleReset = this.handleReset.bind(this)
 
-  handleCountrySelection (evt) {
+  handleCountrySelection(evt) {
     const countryId = evt.target.getAttribute('data-country')
     const country = this.state.countries[countryId]
     this.setState({
@@ -39,7 +39,7 @@ class Map extends Component {
       zoom: country.zoomTimes
     })
   }
-  handleReset () {
+  handleReset() {
     this.setState({
       center: [0, 20],
       zoom: 1,
@@ -47,53 +47,55 @@ class Map extends Component {
     })
   }
 
-  handleZoomIn () {
-    if(this.state.zoom > 10) {
+  handleZoomIn() {
+    if (this.state.zoom > 10) {
       this.setState({
         zoom: this.state.zoom + 6,
       })
-     } else if(this.state.zoom > 5) {
+    } else if (this.state.zoom > 5) {
       this.setState({
         zoom: this.state.zoom + 3,
-      })} else {
+      })
+    } else {
       this.setState({
         zoom: this.state.zoom + 1,
       })
     }
   }
 
-  handleZoomOut () {
-    if(this.state.zoom > 10) {
+  handleZoomOut() {
+    if (this.state.zoom > 10) {
       this.setState({
         zoom: this.state.zoom - 6,
       })
-     } else if(this.state.zoom > 5) {
+    } else if (this.state.zoom > 5) {
       this.setState({
         zoom: this.state.zoom - 3,
       })
-      }
-      else if(this.state.zoom > 1){
-        this.setState({
+    }
+    else if (this.state.zoom > 1) {
+      this.setState({
         zoom: this.state.zoom - 1,
-      })}
-      else if(this.state.zoom !== 1) {
-        this.setState({
+      })
+    }
+    else if (this.state.zoom !== 1) {
+      this.setState({
         zoom: this.state.zoom - 1,
       })
     }
   }
 
 
-  getCountryName (countryName) {
+  getCountryName(countryName) {
     this.setState({
       activeCountry: countryName
     })
   }
 
-  render () {
+  render() {
     return (
       <div className="div buttons-for-countries">
-        <div style={{float: 'right', position: 'relative', right: '1vw', bottom: '5vh', fontFamily: 'Montserrat, sans-serif'}}>
+        <div style={{ float: 'right', position: 'relative', right: '1vw', bottom: '5vh', fontFamily: 'Montserrat, sans-serif' }}>
           {
             // this.state.countries.map((country, i) => (
             //   <button
@@ -106,13 +108,15 @@ class Map extends Component {
             //   </button>
             // ))
           }
-          <Button onClick={this.handleReset} style={{backgroundColor: 'white', color: '#333333'}}>
-            { "Reset" }
+          <Button onClick={this.handleReset} style={{ backgroundColor: 'white', color: '#333333', fontSize: '0.9vw' }}>
+            {"Reset"}
           </Button>
-          <Button onClick={() => this.handleZoomIn()} onClick={() => this.handleZoomIn()} style={{backgroundColor: '#333333', color: 'white'}}>ZOOM IN</Button>     
-          <Button onClick={() => this.handleZoomOut()} style={{backgroundColor: '#333333', color: 'white'}}>ZOOM OUT</Button>
-        </div>
-          <h1 style={{color: 'white', position: 'relative', left: '1vw', bottom: '6vh', fontFamily: 'Montserrat, sans-serif'}}>{this.state.activeCountry}</h1>
+          <Button onClick={() => this.handleZoomIn()} onClick={() => this.handleZoomIn()} style={{ backgroundColor: '#333333', color: 'white', fontSize: '0.9vw' }}><i class="fas fa-search-plus"></i></Button>
+          <Button onClick={() => this.handleZoomOut()} style={{ backgroundColor: '#333333', color: 'white', fontSize: '0.9vw' }}><i class="fas fa-search-minus"></i></Button>
+
+
+        </div >
+        <h1 style={{ color: 'white', position: 'relative', left: '1vw', bottom: '6vh', fontFamily: 'Montserrat, sans-serif', width: '30vw' }}>{this.state.activeCountry}</h1>
         <div style={wrapperStyles}>
           <Motion
             defaultStyle={{
@@ -144,15 +148,15 @@ class Map extends Component {
                 }}
               >
                 <ZoomableGroup center={[x, y]} zoom={zoom}>
-                  <Geographies geography={ '/countries-50m.json' }>
+                  <Geographies geography={'/countries-50m.json'}>
                     {(geographies, projection) => geographies.map(geography => (
                       <Link key={`${geography.properties.name}`} to={`/country/${geography.properties.name}`}>
                         <Geography
-                          geography={ geography }
-                          projection={ projection }
+                          geography={geography}
+                          projection={projection}
                           countries={this.state.listOfCountries.push(geography.properties.name)}
                           onMouseEnter={() => this.getCountryName(geography.properties.name)}
-                          onMouseOut={() => this.setState({activeCountry: 'Where Next?'})}
+                          onMouseOut={() => this.setState({ activeCountry: 'Where Next?' })}
                           onMouseMove={this.handleMove}
                           onMouseLeave={this.handleLeave}
                           style={{
@@ -181,7 +185,7 @@ class Map extends Component {
             )}
           </Motion>
         </div>
-      </div>
+      </div >
     )
   }
 }
