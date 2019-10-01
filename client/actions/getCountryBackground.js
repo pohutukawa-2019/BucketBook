@@ -23,7 +23,7 @@ function randomPhoto (min, max) {
 }
 
 export function getBackgroundByCountry (countryName) {
-  return dispatch => {
+  return (dispatch) => {
     dispatch(getBackgroundPending())
     return fetchBackgroundImageByCountry(countryName)
       .then(apiResponse => {
