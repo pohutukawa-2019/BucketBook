@@ -7,8 +7,9 @@ import Footer from './Footer'
 
 import { getCountry } from '../actions/country'
 import { getBucketList } from '../actions/bucketListItems'
+import { getBackgroundByCountry } from '../actions/getCountryBackground'
 
-import { fetchBackgroundImageByCountry } from '../api/fetchBackgroundImage'
+// import { fetchBackgroundImageByCountry } from '../api/fetchBackgroundImage'
 
 class CountryPage extends React.Component {
   state = {
@@ -28,19 +29,21 @@ class CountryPage extends React.Component {
   }
   componentDidMount () {
     const selectedCountry = this.props.match.params.selectedCountry
-    const random = this.randomPhoto(1, 10)
-    fetchBackgroundImageByCountry(selectedCountry)
-      .then(res => {
-        this.setState({ style: {
-          backgroundSize: '100%, 100%',
-          backgroundPosition: 'center',
-          height: '100vh',
-          width: '100vw',
-          backgroundImage: `url(${res.body.results[random].urls.full})`
-        } })
+    this.props.getBackgroundByCountry(selectedCountry)
+      .then(() => {
+        this.setState({
+          style: {
+            backgroundImage: `url(${this.props.background})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            height: '100vh',
+            width: '100vw',
+            backgroundRepeat: 'no-repeat'
+          }
+        })
+        this.props.getCountry(selectedCountry)
+        this.props.getBucketList(selectedCountry)
       })
-    this.props.getCountry(selectedCountry)
-    this.props.getBucketList(selectedCountry)
   }
 
   render () {
@@ -60,15 +63,16 @@ class CountryPage extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    selectedCountry: state.selectedCountry
+    selectedCountry: state.selectedCountry,
+    background: state.background
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getCountry: selectedCountry => dispatch(getCountry(selectedCountry)),
-    getBucketList: selectedCountry => dispatch(getBucketList(selectedCountry))
-
+    getBucketList: selectedCountry => dispatch(getBucketList(selectedCountry)),
+    getBackgroundByCountry: selectedCountry => dispatch(getBackgroundByCountry(selectedCountry))
   }
 }
 
