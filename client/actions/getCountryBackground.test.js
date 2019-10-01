@@ -36,7 +36,7 @@ describe('getCountryBackground action tests', () => {
   //   const selectedCountry = 'Zambia'
   //   const dispatch = jest.fn()
 
-  //   return getBackgroundByCountry(selectedCountry)(dispatch, )
+  //   return getBackgroundByCountry(selectedCountry)(dispatch)
   //     .then(() => {
   //       console.log(dispatch.mock.calls)
   //     })
