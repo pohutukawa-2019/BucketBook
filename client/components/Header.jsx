@@ -13,20 +13,20 @@ class Header extends Component {
           <Menu.Menu position='left'>
             <Link to='/'><Menu.Item
             style={{ width: '5vw' }}
-            /><img src={'/images/bb_logo_lscape_white.svg'} style={{position: 'relative', left: '2vw', width: '150px', top: '-10px'}}></img></Link>
+            /><img src={'/images/bb_logo_lscape_white.svg'} style={{position: 'relative', left: '5vw', width: '150px', top: '-10px'}}></img></Link>
           </Menu.Menu>
           <Menu.Menu position='right'>
             <IfAuthenticated>
               <Link to='/'><Menu.Item
                 name='SIGN OUT'
                 onClick={logOff}
-                style={{color: 'white', borderStyle: 'solid', borderColor: 'white', borderRadius: '5px', position: 'relative', right: '2vw', top: '2vh', borderWidth: '2px', fontWeight: '900', backgroundColor: '#FF9900'}}
+                style={{color: 'white', borderStyle: 'solid', borderColor: 'white', borderRadius: '5px', position: 'relative', right: '5vw', top: '2vh', borderWidth: '2px', fontWeight: '900', backgroundColor: '#FF9900'}}
               /></Link>
             </IfAuthenticated>
             <IfNotAuthenticated>
             <Link to='/register'><Menu.Item
             name='sign up'
-            style={{color: 'white', borderStyle: 'solid', borderColor: 'white', borderRadius: '5px', position: 'relative', right: '2vw', top: '2vh', borderWidth: '3px', fontWeight: '900'}}
+            style={{color: 'white', borderStyle: 'solid', borderColor: 'white', borderRadius: '5px', position: 'relative', right: '5vw', top: '2vh', borderWidth: '3px', fontWeight: '900'}}
             /></Link>
             </IfNotAuthenticated>
           </Menu.Menu>
