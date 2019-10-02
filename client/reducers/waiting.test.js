@@ -1,5 +1,6 @@
 import waiting from './waiting'
-import { GET_BACKGROUND_PENDING, GET_BACKGROUND_SUCCESS } from '../actions/getCountryBackground'
+import { GET_BACKGROUND_PENDING } from '../actions/getCountryBackground'
+import { COUNTRY_PAGE_READY } from '../actions/countryPageLoaded'
 
 describe('waiting reducer tests', () => {
   it('returns false as initial state', () => {
@@ -18,9 +19,9 @@ describe('waiting reducer tests', () => {
     expect(newState).toBe(true)
   })
 
-  it('returns false when provided a GET_BACKGROUND_SUCCESS action', () => {
+  it('returns false when provided a COUNTRY_PAGE_READY action', () => {
     const currentState = true
-    const action = { type: GET_BACKGROUND_SUCCESS }
+    const action = { type: COUNTRY_PAGE_READY }
 
     const newState = waiting(currentState, action)
     expect(newState).toBe(false)

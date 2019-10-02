@@ -7,6 +7,7 @@ import Footer from './Footer'
 import Waiting from './Waiting'
 
 import { getCountry } from '../actions/country'
+import { countryPageReady } from '../actions/countryPageLoaded'
 import { getBucketList } from '../actions/bucketListItems'
 import { getBackgroundByCountry } from '../actions/getCountryBackground'
 
@@ -42,6 +43,11 @@ class CountryPage extends React.Component {
         })
         this.props.getCountry(selectedCountry)
         this.props.getBucketList(selectedCountry)
+          .then(() => {
+            setTimeout(() => {
+              this.props.countryPageReady()
+            }, 5000)
+          })
       })
   }
 
@@ -76,7 +82,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getCountry: selectedCountry => dispatch(getCountry(selectedCountry)),
     getBucketList: selectedCountry => dispatch(getBucketList(selectedCountry)),
-    getBackgroundByCountry: selectedCountry => dispatch(getBackgroundByCountry(selectedCountry))
+    getBackgroundByCountry: selectedCountry => dispatch(getBackgroundByCountry(selectedCountry)),
+    countryPageReady: () => dispatch(countryPageReady())
   }
 }
 
