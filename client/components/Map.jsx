@@ -91,8 +91,8 @@ class Map extends Component {
 
   render () {
     return (
-      <div className="div buttons-for-countries">
-        <div style={{ float: 'right', position: 'relative', right: '1vw', bottom: '5vh', fontFamily: 'Montserrat, sans-serif' }}>
+      <div className="div map buttons-for-countries">
+        <div style={{float: 'right', position: 'relative', right: '1vw', bottom: '5vh', fontFamily: 'Montserrat, sans-serif'}}>
           {
             // this.state.countries.map((country, i) => (
             //   <button
@@ -105,12 +105,12 @@ class Map extends Component {
             //   </button>
             // ))
           }
-          <Button onClick={this.handleReset} style={{ backgroundColor: 'white', color: '#333333', fontSize: '0.9vw' }}>
+         
+          <Button onClick={() => this.handleZoomIn()} style={{ backgroundColor: '#444444', color: 'white', fontSize: '0.9vw' }}><i className='fas fa-search-plus'></i></Button>
+          <Button onClick={() => this.handleZoomOut()} style={{ backgroundColor: '#444444', color: 'white', fontSize: '0.9vw' }}><i className='fas fa-search-minus'></i></Button>
+          <Button onClick={this.handleReset} style={{ backgroundColor: 'white', color: '#444444', fontSize: '0.9vw' }}>
             {'Reset'}
           </Button>
-          <Button onClick={() => this.handleZoomIn()} style={{ backgroundColor: '#333333', color: 'white', fontSize: '0.9vw' }}><i className='fas fa-search-plus'></i></Button>
-          <Button onClick={() => this.handleZoomOut()} style={{ backgroundColor: '#333333', color: 'white', fontSize: '0.9vw' }}><i className='fas fa-search-minus'></i></Button>
-
         </div >
         <h1 style={{ color: 'white', position: 'relative', left: '1vw', bottom: '6vh', fontFamily: 'Montserrat, sans-serif', width: '30vw' }}>{this.state.activeCountry}</h1>
         <div style={wrapperStyles}>

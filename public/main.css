@@ -2,6 +2,60 @@
   margin: 0px;
 }
 
+/* Responsive */
+
+@media screen and (max-width: 950px) {
+  .picture {
+    width: 20vw !important;
+    height: 20vw !important;
+    position: absolute !important;
+    right: 10vw !important;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .map {
+    display: none;
+  }
+  .ui.input > input {
+    width: 80vw !important;
+    position: relative;
+    left: 5vw;
+  }
+  .results {
+    width: 80vw !important;
+    position: relative;
+    left: 5vw !important;
+  }
+  .resultHeaderContainer {
+    text-align: center !important;
+  }
+  .respoResultHeader {
+    display: inline-block !important;
+    width: 80w !important;
+    position: relative !important;
+    font-family: 'Montserrat', sans-serif !important;
+    color: white !important;
+    top: 3vh !important;
+  }
+  .signin {
+    font-size: 2vw !important;
+    width: 20vw !important;
+  }
+  .welcome {
+    font-size: 4rem !important;
+    display: block !important;
+    float: left !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .signin {
+    font-size: 3vw !important;
+    width: 30vw !important;
+  }
+}
+
 input:focus {outline:0;}
 
 button:focus {outline:0;}
@@ -22,9 +76,74 @@ button:focus {outline:0;}
   opacity: 1;
 }
 
+.inputPlaceholderColor {
+  font-size: 3vh;
+}
+
+
+
 .results {
   max-height: 65vh;
   overflow-y: auto;
+}
+
+.input-container input{
+  height: 7vh;
+  width: 75vw;
+  margin-left: 2.5vw;
+  margin-top: 2.5vh;
+  display: inline-block;
+  border-radius: 6px;
+  border-color: #EBEDED;
+  border-style: solid;
+}
+
+.input-container button {
+  margin-left: 2.5vw;
+}
+
+.input-container {
+  background: white;
+  padding-bottom: 1.5vw;
+  border-radius: 6px !important; 
+  vertical-align: top;
+}
+
+form {
+  border-radius: 10px;
+}
+
+.bucketlist-container {
+  padding-left: 3vw;
+  padding-right: 3vw;
+  margin: 0;
+}
+
+.bucketlist-item {
+  display: flex;
+  flex-direction: row; 
+  background-color: white;
+  width: 80vw;
+  border-radius: 6px !important; 
+  padding-top: 10px;
+  padding-bottom: 0px;
+  padding-left: 40px;
+  margin-top: 5px;
+  justify-content: space-between;
+}
+
+.bucketlist-item button {
+  border-style: none;
+  float: right;
+  color: orange;
+  width: 3vw;
+  font-weight: bold;  
+  vertical-align: middle;
+}
+
+.bucketlist-item p {
+  color: black;
+  font-weight: bold;
 }
 
 .loadingIMG {

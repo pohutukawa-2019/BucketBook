@@ -40,6 +40,23 @@ class SignUp extends React.Component {
       })
   }
 
+  handleEnter = (event) => {
+    if (event.charCode === 13) {
+      event.preventDefault()
+      register({
+        username: this.state.username,
+        password: this.state.password
+      }, {
+        baseUrl: process.env.BASE_API_URL
+      })
+        .then((token) => {
+          if (isAuthenticated()) {
+            this.props.history.push('/')
+          }
+        })
+    }
+  }
+
   gridStyle = {
     backgroundColor: 'rgba(30, 113, 128, 0.80)',
     position: 'relative',
@@ -67,7 +84,7 @@ class SignUp extends React.Component {
               borderStyle: 'solid',
               borderWidth: '2px',
               borderColor: 'orange'
-              }}></img>
+            }}></img>
           <ColTwo name='username'
             placeholder='Username'
             autoComplete="username"
@@ -86,12 +103,13 @@ class SignUp extends React.Component {
               top: '28.5vh',
               fontSize: '17px'
             }}
-            />
+          />
 
           <ColTwo name='password' type='password'
-          autoComplete="new-password"
+            autoComplete="new-password"
             placeholder='Password'
             onChange={this.handleChange}
+            onKeyPress={this.handleEnter}
             style={{
               width: '30vw',
               height: '5vh',
@@ -106,7 +124,7 @@ class SignUp extends React.Component {
               top: '20vh',
               fontSize: '17px'
             }}
-            />
+          />
 
           <ColTwo name='picture' type='picture'
             placeholder='Picture'
@@ -125,7 +143,7 @@ class SignUp extends React.Component {
               top: '12vh',
               fontSize: '17px'
             }}
-            />
+          />
 
           <Button type='button' style={{
             width: '8vw',
@@ -139,7 +157,7 @@ class SignUp extends React.Component {
             borderStyle: 'none',
             color: 'white',
             cursor: 'pointer'
-            }} onClick={this.handleClick}>SUBMIT</Button>
+          }} onClick={this.handleClick}>SUBMIT</Button>
         </GridForm>
         <Footer />
       </div>

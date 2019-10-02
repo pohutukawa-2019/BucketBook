@@ -22,75 +22,27 @@ class Home extends React.Component {
     }
   }
 
-  // randomPhoto = (min, max) => {
-  //   min = Math.ceil(min)
-  //   max = Math.floor(max)
-  //   return Math.floor(Math.random() * (max - min)) + min
-  // }
-
-
-  // componentDidMount () {
-  //   const random = this.randomPhoto(1, 10)
-  //   fetchBackgroundImage()
-  //     .then(res => {
-  //       this.setState({style: {
-  //         backgroundSize: '100%, 100%',
-  //         backgroundPosition: 'center',
-  //         height: '100vh',
-  //         width: '100vw',
-  //         backgroundImage: `url(${res.body.results[random].urls.full})`
-  //       }})
-  //     })
-  //   if (this.state.style.backgroundImage === "") {
-  //     this.setState({style: {
-  //       backgroundSize: '100%, 100%',
-  //         backgroundPosition: 'center',
-  //         height: '100vh',
-  //         width: '100vw',
-  //         backgroundImage: 'url(https://images.unsplash.com/photo-1544945582-052b29cd29e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1488&q=80)'
-  //     }})
-  //   }
-  // }
-
-  handleClick = () => {
-
-  }
-
   render () {
-    return(
-      
-        <div style={this.state.style}>
-          <Header />
-          <IfNotAuthenticated>
+    return (
+      <div style={this.state.style}>
+        <Header />
+        <IfNotAuthenticated>
           <div style={{textAlign: 'center'}}>
-            <h1 style={{color: 'white', fontFamily: 'Montserrat, sans-serif', fontSize: '100px', fontWeight: '300', position: 'relative', top: '23vh', display: 'inline-block', width: '100vw'}}>Welcome</h1>
+            <h1 style={{color: 'white', fontFamily: 'Montserrat, sans-serif', fontSize: '10rem', fontWeight: '300', position: 'relative', top: '23vh', display: 'inline-block', width: '100vw'}} className='welcome'>Welcome</h1>
             <h2 style={{color: 'white', fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: '100', position: 'relative', top: '18vh', display: 'inline-block', width: '100vw'}}>Start creating your travel bucket list today</h2>
             <Link to='/login'><button className='ui button' onClick={this.handleClick} style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', backgroundColor: 'orange', color: 'white', fontWeight: '100', width: '13vw', height: '6vh', position: 'relative', top: '20vh', display: 'inline-block' }}>SIGN IN</button></Link>
-            </div>          
-          </IfNotAuthenticated>
-          <IfAuthenticated>
-            <div style={{width: '90vw', height: '85vh', backgroundColor: 'rgba(30, 113, 128, 0.80)', borderRadius: '15px 15px 0px 0px', position: 'relative', left: '5vw', top: '8vh'}}>
-              <Searchbar />
-              <Map />
-            </div>
-            <Footer />
-          </IfAuthenticated>
-        </div>
-      
+          </div>          
+        </IfNotAuthenticated>
+        <IfAuthenticated>
+          <div style={{width: '90vw', height: '85vh', backgroundColor: 'rgba(30, 113, 128, 0.80)', borderRadius: '15px 15px 0px 0px', position: 'relative', left: '5vw', top: '8vh'}}>
+            <Searchbar />
+            <Map />
+          </div>
+          <Footer />
+        </IfAuthenticated>
+      </div>
     )
   }
 }
 
-function mapStateToProps (state) {
-  return {
-    
-  }
-}
-
-function mapDispatchToProps (dispatch) {
-  return {
-    
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default (Home)
