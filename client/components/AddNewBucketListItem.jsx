@@ -12,17 +12,17 @@ class AddNewBucketListItem extends Component {
   }
 
   handleChange = (e) => {
-      this.setState({ [e.target.name]: e.target.value})
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   handleClick = () => {
-      this.props.addBucketListItem({
-          title: this.state.title,
-          countryId: this.props.selectedCountry.id,
-          countryName: this.props.selectedCountry.name
-      })
-}
-    
+    this.props.addBucketListItem({
+      title: this.state.title,
+      countryId: this.props.selectedCountry.id,
+      countryName: this.props.selectedCountry.name
+    })
+  }
+
   render () {
     return (
       <div>
@@ -41,9 +41,9 @@ class AddNewBucketListItem extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return {
-      selectedCountry: state.selectedCountry
-    }
+  return {
+    selectedCountry: state.selectedCountry
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {

@@ -8,7 +8,7 @@ import SignIn from './SignIn'
 import SignUp from './SignUp'
 
 class App extends React.Component {
-  render() {
+  render () {
     return (
       <Router>
         <Switch>

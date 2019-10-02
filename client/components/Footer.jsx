@@ -8,7 +8,6 @@ const Footer = () => {
         <img src={'/images/BBook-footer-socmedia-twitter.svg'} style={{ right: '8vw', position: 'relative' }}></img>
         <img src={'/images/BBook-footer-socmedia-fb.svg'} style={{ right: '6vw', position: 'relative' }}></img>
 
-
       </div>
     </div>
   )

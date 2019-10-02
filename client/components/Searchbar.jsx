@@ -11,7 +11,7 @@ const initialState = { isLoading: false, results: [], value: '' }
 const resultRenderer = ({ title }) => <Link to={`/country/${title}`}><Label content={title} /></Link>
 
 resultRenderer.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string
 }
 
 class Searchbar extends Component {
@@ -35,7 +35,7 @@ class Searchbar extends Component {
     }, 300)
   }
 
-  render() {
+  render () {
     const { isLoading, value, results } = this.state
 
     return (
@@ -45,9 +45,9 @@ class Searchbar extends Component {
             loading={isLoading}
             onResultSelect={this.handleResultSelect}
             onSearchChange={_.debounce(this.handleSearchChange, 500, {
-              leading: true,
+              leading: true
             })}
-            style={{ position: 'relative', left: '1vw', top: '6vh', fontFamily: 'Montserrat, sans-serif'}}
+            style={{ position: 'relative', left: '1vw', top: '6vh', fontFamily: 'Montserrat, sans-serif' }}
             results={results}
             value={value}
             resultRenderer={resultRenderer}

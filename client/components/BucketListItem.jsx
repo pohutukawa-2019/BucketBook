@@ -2,9 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 const BucketListItem = (props) => {
-  return(
+  return (
     <div className='bucketlist-item'>
-      <p>{props.title}</p> 
+      <p>{props.title}</p>
       <button onClick={() => props.removeHandler(props.id, props.countryName)}>X</button>
     </div>
   )
