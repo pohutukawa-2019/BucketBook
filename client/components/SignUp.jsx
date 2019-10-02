@@ -70,6 +70,7 @@ class SignUp extends React.Component {
               }}></img>
           <ColTwo name='username'
             placeholder='Username'
+            autoComplete="username"
             onChange={this.handleChange}
             style={{
               width: '30vw',
@@ -88,6 +89,7 @@ class SignUp extends React.Component {
             />
 
           <ColTwo name='password' type='password'
+          autoComplete="new-password"
             placeholder='Password'
             onChange={this.handleChange}
             style={{

@@ -101,6 +101,7 @@ class SignIn extends Component {
 
           <ColTwo name='username'
             placeholder='Username'
+            autoComplete="username"
             onChange={this.handleChange}
             style={{
               width: '30vw',
@@ -118,7 +119,7 @@ class SignIn extends Component {
             }}
             />
 
-          <ColTwo name='password' type='password'
+          <ColTwo name='password' type='password' autoComplete="password"
             placeholder='Password'
             onChange={this.handleChange}
             style={{
