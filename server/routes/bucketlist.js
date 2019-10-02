@@ -14,8 +14,8 @@ router.get('/:selectedCountry', tokenDecoder, (req, res) => {
   db.getBucketListItemsByCountry(selectedCountry)
     .then(countryItems => countryItems.filter(item => {
       return item.user_id === userId
-    }
-    )).then(bucketList => res.status(200).json(bucketList))
+    }))
+    .then(bucketList => res.status(200).json(bucketList))
 })
 
 router.post('/:selectedCountry', tokenDecoder, (req, res) => {

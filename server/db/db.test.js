@@ -24,6 +24,8 @@ describe('Database functions for bucketlist items', () => {
   })
 
   it('addBucketListItem returns a new bucketlist item', () => {
+    expect.assertions(1)
+
     const bucketListItemTitle = 'Hop'
     const selectedCountryId = 2
     const userId = 2
@@ -35,6 +37,8 @@ describe('Database functions for bucketlist items', () => {
   })
 
   it('getCountryName returns a single country name', () => {
+    expect.assertions(2)
+
     const countryName = 'Zambia'
     const id = 2
     
@@ -46,6 +50,8 @@ describe('Database functions for bucketlist items', () => {
   })
 
   it('deleteBucketListItemById deletes a bucketlist item by id', () => {
+    expect.assertions(1)
+
     return db.deleteBucketListItemById(3, testDb)
       .then(bucketListItem => {
         expect(bucketListItem).toBe(1)

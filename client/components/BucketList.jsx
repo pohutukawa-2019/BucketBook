@@ -6,7 +6,7 @@ import AddNewBucketListItem from './AddNewBucketListItem'
 
 import { deleteBucketListItem } from '../actions/bucketListItems'
 
-class BucketList extends Component {
+class BucketList extends Component { 
   removeHandler = (id, selectedCountry) => {
     this.props.deleteBucketListItem(id, selectedCountry)
   }

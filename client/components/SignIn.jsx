@@ -23,35 +23,6 @@ class SignIn extends Component {
     }
   }
 
-  // randomPhoto = (min, max) => {
-  //   min = Math.ceil(min)
-  //   max = Math.floor(max)
-  //   return Math.floor(Math.random() * (max - min)) + min
-  // }
-
-  // componentDidMount () {
-  //   const random = this.randomPhoto(1, 10)
-  //   fetchBackgroundImage()
-  //     .then(res => {
-  //       this.setState({style: {
-  //         backgroundSize: '100%, 100%',
-  //         backgroundPosition: 'center',
-  //         height: '100vh',
-  //         width: '100vw',
-  //         backgroundImage: `url(${res.body.results[random].urls.full})`
-  //       }})
-  //     })
-  //   if (this.state.style.backgroundImage === "") {
-  //     this.setState({style: {
-  //       backgroundSize: '100%, 100%',
-  //         backgroundPosition: 'center',
-  //         height: '100vh',
-  //         width: '100vw',
-  //         backgroundImage: 'url(https://images.unsplash.com/photo-1544945582-052b29cd29e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1488&q=80)'
-  //     }})
-  //   }
-  // }
-  
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
@@ -70,6 +41,23 @@ class SignIn extends Component {
       })
   }
 
+  handleEnter = (event) => {
+    if (event.charCode === 13) {
+      event.preventDefault()
+      signIn({
+        username: this.state.username,
+        password: this.state.password
+      }, {
+        baseUrl: process.env.BASE_API_URL
+      })
+        .then((token) => {
+          if (isAuthenticated()) {
+            this.props.history.push('/')
+          }
+        })
+    }
+  }
+
   gridStyle = {
     backgroundColor: 'rgba(30, 113, 128, 0.80)',
     position: 'relative',
@@ -85,8 +73,10 @@ class SignIn extends Component {
     return (
       <div style={this.state.style}>
         <Header />
-        <GridForm style={this.gridStyle}>
-          <img className='picture' src={this.state.picture} alt='Missing'
+        <GridForm
+          onKeyPress={this.handleEnter}
+          style={this.gridStyle}>
+          <img src={this.state.picture} alt='Missing'
             style={{
               borderRadius: '50%',
               width: '14vw',
@@ -97,7 +87,7 @@ class SignIn extends Component {
               borderStyle: 'solid',
               borderWidth: '2px',
               borderColor: 'orange'
-              }}></img>
+            }}></img>
 
           <ColTwo name='username'
             placeholder='Username'
@@ -117,17 +107,18 @@ class SignIn extends Component {
               top: '40.5vh',
               fontSize: '17px'
             }}
-            />
+          />
 
           <ColTwo name='password' type='password' autoComplete="password"
             placeholder='Password'
+            onKeyPress={this.handleEnter}
             onChange={this.handleChange}
             style={{
               width: '30vw',
               height: '5vh',
               fontFamily: 'Montserrat, sans-serif',
               backgroundColor: 'rgba(0, 0, 0, 0)',
-              borderWidth: '0px', 
+              borderWidth: '0px',
               color: 'white',
               borderBottomWidth: '1px',
               borderBottomColor: 'white',
@@ -136,11 +127,11 @@ class SignIn extends Component {
               top: '25vh',
               fontSize: '17px'
             }}
-            />
+          />
 
           <Button type='button' style={{
             width: '8vw',
-            height: '4vh', 
+            height: '4vh',
             position: 'relative',
             top: '12vh',
             left: '2vw',
@@ -150,7 +141,7 @@ class SignIn extends Component {
             borderStyle: 'none',
             color: 'white',
             cursor: 'pointer'
-            }} onClick={this.handleClick}>SUBMIT</Button>
+          }} onClick={this.handleClick}>SUBMIT</Button>
         </GridForm>
         <Footer />
       </div>
