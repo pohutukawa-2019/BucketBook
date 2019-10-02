@@ -51,7 +51,7 @@ class AddNewBucketListItem extends Component {
               fontSize: '1vw',
               cursor: 'pointer',
               fontWeight: 'regular',
-              borderRadius: '15px'
+              borderRadius: '10px'
             }} type='button' onClick={this.handleClick}>Add item</Button>
           </div>
 
