@@ -134,3 +134,8 @@ form {
   font-weight: bold;
 }
 
+.loadingIMG {
+  position: relative;
+  top: 35vh;
+  left: 45vw;
+}

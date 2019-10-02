@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Footer = () => {
-  return(
+  return (
     <div style={{backgroundColor: '#1B245C', height: '5vh', width: '100vw', position: 'fixed', bottom: '0px'}}>
       <div style={{float: 'right', position: 'relative', padding: '1.5vh'}}>
         <img src={'/images/BBook-footer-socmedia-nstagram.svg'} style={{right: '10vw', position: 'relative'}}></img>

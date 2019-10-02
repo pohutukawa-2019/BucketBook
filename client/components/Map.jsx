@@ -8,9 +8,10 @@ import {
   ZoomableGroup,
   Geographies,
   Geography
-} from "react-simple-maps"
+} from 'react-simple-maps'
 
 import { Motion, spring } from 'react-motion'
+import { thisExpression } from '@babel/types'
 
 const wrapperStyles = {
   width: '100%',
@@ -25,12 +26,7 @@ class Map extends Component {
     center: [0, 20],
     zoom: 1,
     activeCountry: 'Where would you like to go?',
-    countries: [
-      { name: 'Andorra', coordinates: [1.601554, 42.546245], zoomTimes: 40 },
-      { name: 'United Arab Emirates', coordinates: [53.847818, 23.424076], zoomTimes: 4 },
-      { name: 'Afghanistan', coordinates: [67.709953, 33.93911], zoomTimes: 2 }
-      //  https://developers.google.com/public-data/docs/canonical/countries_csv grabbing coordinates from here! lol long process.
-    ]
+    dynamicStrokeWidth: 0.45
   }
   handleCountrySelection = this.handleCountrySelection.bind(this)
   handleReset = this.handleReset.bind(this)
@@ -46,18 +42,41 @@ class Map extends Component {
   handleReset () {
     this.setState({
       center: [0, 20],
-      zoom: 1
+      zoom: 1,
+      dynamicStrokeWidth: 0.8
     })
   }
 
   handleZoomIn () {
-    this.setState({
-      zoom: this.state.zoom + 1
-    })
+    if (this.state.zoom > 10) {
+      this.setState({
+        zoom: this.state.zoom + 6
+      })
+    } else if (this.state.zoom > 5) {
+      this.setState({
+        zoom: this.state.zoom + 3
+      })
+    } else {
+      this.setState({
+        zoom: this.state.zoom + 1
+      })
+    }
   }
 
   handleZoomOut () {
-    if (this.state.zoom !== 1) {
+    if (this.state.zoom > 10) {
+      this.setState({
+        zoom: this.state.zoom - 6
+      })
+    } else if (this.state.zoom > 5) {
+      this.setState({
+        zoom: this.state.zoom - 3
+      })
+    } else if (this.state.zoom > 1) {
+      this.setState({
+        zoom: this.state.zoom - 1
+      })
+    } else if (this.state.zoom !== 1) {
       this.setState({
         zoom: this.state.zoom - 1
       })
@@ -86,13 +105,14 @@ class Map extends Component {
             //   </button>
             // ))
           }
-          <Button onClick={this.handleReset} style={{backgroundColor: 'white', color: '#333333'}}>
-            { "Reset" }
+          <Button onClick={this.handleReset} style={{ backgroundColor: 'white', color: '#333333', fontSize: '0.9vw' }}>
+            {'Reset'}
           </Button>
-          <Button onClick={() => this.handleZoomIn()} onClick={() => this.handleZoomIn()} style={{backgroundColor: '#333333', color: 'white'}}>ZOOM IN</Button>     
-          <Button onClick={() => this.handleZoomOut()} style={{backgroundColor: '#333333', color: 'white'}}>ZOOM OUT</Button>
-        </div>
-        <h1 style={{color: 'white', position: 'relative', left: '1vw', bottom: '6vh', fontFamily: 'Montserrat, sans-serif'}}>{this.state.activeCountry}</h1>
+          <Button onClick={() => this.handleZoomIn()} style={{ backgroundColor: '#333333', color: 'white', fontSize: '0.9vw' }}><i className='fas fa-search-plus'></i></Button>
+          <Button onClick={() => this.handleZoomOut()} style={{ backgroundColor: '#333333', color: 'white', fontSize: '0.9vw' }}><i className='fas fa-search-minus'></i></Button>
+
+        </div >
+        <h1 style={{ color: 'white', position: 'relative', left: '1vw', bottom: '6vh', fontFamily: 'Montserrat, sans-serif', width: '30vw' }}>{this.state.activeCountry}</h1>
         <div style={wrapperStyles}>
           <Motion
             defaultStyle={{
@@ -115,8 +135,8 @@ class Map extends Component {
                 width={980}
                 height={551}
                 style={{
-                  width: "70vw",
-                  height: "auto",
+                  width: '70vw',
+                  height: 'auto',
                   position: 'relative',
                   float: 'right',
                   right: '8vw',
@@ -124,16 +144,15 @@ class Map extends Component {
                 }}
               >
                 <ZoomableGroup center={[x, y]} zoom={zoom}>
-                  <Geographies geography={ '/countries-50m.json' }>
-
+                  <Geographies geography={'/countries-50m.json'}>
                     {(geographies, projection) => geographies.map(geography => (
                       <Link key={`${geography.properties.name}`} to={`/country/${geography.properties.name}`}>
                         <Geography
-                          geography={ geography }
-                          projection={ projection }
+                          geography={geography}
+                          projection={projection}
                           countries={this.state.listOfCountries.push(geography.properties.name)}
                           onMouseEnter={() => this.getCountryName(geography.properties.name)}
-                          onMouseOut={() => this.setState({activeCountry: 'Where Next?'})}
+                          onMouseOut={() => this.setState({ activeCountry: 'Where Next?' })}
                           onMouseMove={this.handleMove}
                           onMouseLeave={this.handleLeave}
                           style={{
@@ -141,19 +160,15 @@ class Map extends Component {
                               fill: '#ECEFF1',
                               fillOpacity: 0,
                               stroke: '#FFF',
-                              strokeWidth: 0.8,
+                              strokeWidth: this.state.dynamicStrokeWidth,
                               outline: 'none'
                             },
                             hover: {
-                              fill: "#f7b731",
-                              stroke: "#FFF",
-                              strokeWidth: 0.8,
-                              outline: "none",
+                              fill: '#f7b731',
+                              outline: 'none'
                             },
                             pressed: {
                               fill: '#FF5722',
-                              stroke: '#607D8B',
-                              strokeWidth: 0.1,
                               outline: 'none'
                             }
                           }}
@@ -166,7 +181,7 @@ class Map extends Component {
             )}
           </Motion>
         </div>
-      </div>
+      </div >
     )
   }
 }
