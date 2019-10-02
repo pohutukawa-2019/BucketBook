@@ -13,8 +13,16 @@ import { getBackgroundByCountry } from '../actions/getCountryBackground'
 
 class CountryPage extends React.Component {
   state = {
+    OGstyle: {
+      backgroundImage: 'url(https://images.unsplash.com/photo-1545288204-7ed1f80acba3?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjkzNDQ2fQ)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      height: '100vh',
+      width: '100vw',
+      backgroundRepeat: 'no-repeat'
+    },
     style: {
-      backgroundImage: '',
+      backgroundImage: 'url(https://images.unsplash.com/photo-1545288204-7ed1f80acba3?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjkzNDQ2fQ)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       height: '100vh',
@@ -46,26 +54,34 @@ class CountryPage extends React.Component {
           .then(() => {
             setTimeout(() => {
               this.props.countryPageReady()
-            }, 5000)
+            }, 2500)
           })
       })
   }
 
   render () {
     return (
-      <div className='bucketlist-container' style={this.state.style}>
-        <Header />
-      {this.props.waiting && <Waiting />} 
-      {this.props.waiting === false && <><div className='bucketlist-header'>
-          <h1>Add an item to<br></br> your bucket list.</h1>
-          <h2 style={{ float: 'right', top: '-3vh', right: '10vw', position: 'relative' }}>{this.props.match.params.selectedCountry}</h2>
+      <>
+      { this.props.waiting &&
+        <div className='bucketlist-container' style={this.state.style}>
+          <Header />
+          <Waiting />
+          <Footer />
         </div>
-        <BucketList /> </> }
-       
-       
-
-        <Footer />
-      </div>
+      }
+        {this.props.waiting === false &&
+        <div className='bucketlist-container' style={this.state.style}>
+          <Header />
+          <div className='bucketlist-header'>
+            <h1>Add an item to<br></br> your bucket list.</h1>
+            <h2 style={{ float: 'right', top: '-3vh', right: '10vw', position: 'relative' }}>
+              {this.props.match.params.selectedCountry}</h2>
+          </div>
+          <BucketList />
+          <Footer />
+        </div>
+        }
+      </>
     )
   }
 }
