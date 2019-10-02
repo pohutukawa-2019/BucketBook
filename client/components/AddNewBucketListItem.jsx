@@ -3,7 +3,7 @@ import { GridForm, ColOne, ColThree, Button } from './Styled'
 import { connect } from 'react-redux'
 
 import { addBucketListItem } from '../actions/bucketListItems'
-import { blockStatement } from '@babel/types';
+import { blockStatement } from '@babel/types'
 
 class AddNewBucketListItem extends Component {
   state = {
@@ -13,57 +13,59 @@ class AddNewBucketListItem extends Component {
   }
 
   handleChange = (e) => {
-      this.setState({ [e.target.name]: e.target.value})
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   handleClick = () => {
-  this.props.addBucketListItem({
+    this.props.addBucketListItem({
       title: this.state.title,
       countryId: this.props.selectedCountry.id,
       countryName: this.props.selectedCountry.name
-  })
-}
-    
+    })
+  }
+
   render () {
     return (
       <div>
         <GridForm style={{
           position: 'relative',
-          left: '2vw',
+          left: '0vw',
           top: '2vh',
           display: 'inline-block',
-          width: '60vw'
-          }}>
+          width: '80vw'
+        }}>
           <div className='input-container'>
-          <ColThree name='title'
-            placeholder='Enter it here'
-            value={this.state.title}
-            onChange={this.handleChange}/>
+            <ColThree name='title'
+              placeholder='Enter it here'
+              value={this.state.title}
+              onChange={this.handleChange}/>
+            <Button style={{
+              position: 'relative',
+              backgroundColor: 'orange',
+              width: '8vw',
+              height: '2.5vw',
+              borderStyle: 'none',
+              display: 'inline-block',
+              top: '1vh',
+              color: 'white',
+              fontSize: '1vw',
+              cursor: 'pointer',
+              fontWeight: 'regular',
+              borderRadius: '15px'
+            }} type='button' onClick={this.handleClick}>Add item</Button>
           </div>
 
-
-          <Button style={{
-            position: 'relative',
-            backgroundColor: 'rgba(0, 0, 0, 0)',
-            width: '3vw',
-            height: '3vw',
-            borderStyle: 'none',
-            display: 'inline-block',
-            top: '1vh',
-            color: 'orange',
-            fontSize: '3vw',
-            cursor: 'pointer'
-          }} type='button' onClick={this.handleClick}>+</Button>
         </GridForm>
+
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => {
-    return {
-      selectedCountry: state.selectedCountry
-    }
+  return {
+    selectedCountry: state.selectedCountry
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {

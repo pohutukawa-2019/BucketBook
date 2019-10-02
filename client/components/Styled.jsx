@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
 export const GridForm = styled.form`
-  width: 50%;
+  width: 80%;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: auto 1fr;
+  background-color: white;
 `
 
 export const ColOne = styled.span`
@@ -24,4 +25,3 @@ export const Button = styled.button`
   grid-column: 2;
   width: 50%;
 `
-

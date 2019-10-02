@@ -48,24 +48,24 @@ class CountryPage extends React.Component {
       <div className='country-container' style={this.state.style}>
         <Header />
         <div style={{
-              color: 'white',
-              fontFamily: 'Montserrat, sans-serif',
-              backgroundColor: 'rgba(30, 113, 128, 0.80)',
-              width: '90vw',
-              height: '85vh',
-              borderRadius: '15px 15px 0px 0px',
-              position: 'relative',
-              left: '5vw',
-              top: '6vh'
-            }} className='bucketlist-container'>
+          color: 'white',
+          fontFamily: 'Montserrat, sans-serif',
+          backgroundColor: 'rgba(30, 113, 128, 0.80)',
+          width: '90vw',
+          height: '80vh',
+          borderRadius: '15px 15px 0px 0px',
+          position: 'relative',
+          left: '5vw',
+          top: '8vh'
+        }} className='bucketlist-container'>
           <div className='bucketlist-header'>
-            <h1 style={{
+            <h2 style={{
               position: 'relative',
-              left: '3vw',
+              // left: '3vw',
               top: '2vh',
               fontWeight: '100'
-            }}>Start adding to your list</h1>
-            <h2 style={{ float: 'right', bottom: '5.5vh', right: '4vw', position: 'relative' }}>{this.props.match.params.selectedCountry}</h2>
+            }}>Start adding to your list</h2>
+            <h2 style={{ float: 'right', bottom: '5.5vh', position: 'relative' }}>{this.props.match.params.selectedCountry}</h2>
           </div>
           <BucketList />
         </div>

@@ -79,10 +79,58 @@ button:focus {outline:0;}
   overflow-y: auto;
 }
 
-.bucketlist-header {
-  background-color: orange;
+.input-container input{
+  width: 75vw;
+  margin-left: 2.5vw;
+  margin-top: 2.5vh;
+  display: inline-block;
+}
+
+.input-container button {
+  margin-left: 2.5vw;
 }
 
 .input-container {
-  display: inline-block;
+  background: white;
+  padding-bottom: 2vw;
+  border-radius: 15px !important; 
 }
+
+form {
+  border-radius: 15px;
+}
+
+.bucketlist-container {
+  padding-left: 3vw;
+  padding-right: 3vw;
+  margin: 0;
+}
+
+.bucketlist-item {
+  display: flex;
+  flex-direction: row; 
+  background-color: white;
+  width: 80vw;
+  border-radius: 15px !important; 
+  padding: 15px;
+  margin-top: 5px;
+  justify-content: space-between;
+}
+
+.bucketlist-item button {
+  border-style: none;
+  float: right;
+  color: orange;
+  width: 3vw;
+  font-weight: bold;  
+  vertical-align: middle;
+  /* padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px; */
+}
+
+.bucketlist-item p {
+  color: black;
+  font-weight: bold;
+}
+
