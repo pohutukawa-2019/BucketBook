@@ -10,7 +10,7 @@ beforeEach(() => {
 })
 
 describe('Background image routes', () => {
-  it('GET / returns an image by selectedCountry', () => {
+  it('GET / returns an array of images by selectedCountry using an API from Unsplash', () => {
     return request(server)
       .get('/api/v1/background/Zambia')
       .then(res => {

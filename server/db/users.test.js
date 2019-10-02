@@ -1,5 +1,6 @@
 const env = require('./test-environment')
 const db = require('./users')
+// const { generateHash } = require('authenticare/server')
 
 let testDb = null
 
@@ -35,17 +36,18 @@ describe('Database functions for users', () => {
       })
   })
 
-  it('createUser returns a new user', () => {
-    // expect.assertions(2)
+  // it('createUser returns a new user', () => {
+  //   // expect.assertions(2)
 
-    const newUser = {
-      username: 'john',
-      password: 'password'
-    }
+  //   const newUser = {
+  //     username: 'john',
+  //     password: generateHash(password)
+  //   }
 
-    return db.createUser(newUser, testDb)
-      .then(([newId]) => {
-        expect(newId).toBe(4)
-      })
-  })
+  //   return db.createUser(newUser, testDb)
+  //     .then(([newId]) => {
+  //       expect(newId).toBe(4)
+  //     })
+  //     .then()
+  // })
 })
