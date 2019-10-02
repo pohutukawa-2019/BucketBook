@@ -22,6 +22,9 @@ class AddNewBucketListItem extends Component {
       countryId: this.props.selectedCountry.id,
       countryName: this.props.selectedCountry.name
     })
+    this.setState({
+      title: ''
+    })
   }
 
   render () {
@@ -35,7 +38,7 @@ class AddNewBucketListItem extends Component {
           width: '80vw'
         }}>
           <div className='input-container'>
-            <ColThree name='title'
+            <ColThree className='inputPlaceholderColor' name='title'
               placeholder='Enter it here'
               value={this.state.title}
               onChange={this.handleChange}/>

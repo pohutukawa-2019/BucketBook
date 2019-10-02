@@ -18,10 +18,11 @@ class BucketList extends Component {
         <div style={{
           position: 'relative',
           width: '80vw',
-          height: '50vh',
-          top: '8vh',
+          height: '48vh',
+          top: '3vh',
           left: '0vw',
-          overflow: 'auto'
+          overflow: 'auto',
+          marginTop: 0
         }} className='bucketlist-item-container'>
           {this.props.bucketList.map(bucketListItem => {
             return <BucketListItem

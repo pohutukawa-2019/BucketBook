@@ -14,7 +14,7 @@ class Header extends Component {
             <Link to='/'>
               <Menu.Item
                 style={{ width: '5vw' }}
-              /><img src={'/images/bb_logo_lscape_white.svg'} style={{ position: 'relative', left: '2vw', width: '7vw', top: '-1vh' }}></img>
+              /><img src={'/images/bb_logo_lscape_white.svg'} style={{ position: 'relative', left: '5vw', width: '7vw', top: '1vh' }}></img>
             </Link>
           </Menu.Menu>
           <Menu.Menu position='right'>
@@ -23,7 +23,7 @@ class Header extends Component {
                 <Menu.Item
                   name='SIGN OUT'
                   onClick={logOff}
-                  style={{ color: 'white', borderStyle: 'solid', borderColor: 'orange', borderRadius: '5px', position: 'relative', right: '2vw', top: '2vh', borderWidth: '3px', fontWeight: '900' }}
+                  style={{ color: 'white', borderStyle: 'solid', borderColor: 'orange', borderRadius: '5px', position: 'relative', right: '5vw', top: '3vh', borderWidth: '3px', fontWeight: '900' }}
                 />
               </Link>
             </IfAuthenticated>
@@ -31,7 +31,7 @@ class Header extends Component {
               <Link to='/register'>
                 <Menu.Item
                   name='sign up'
-                  style={{ color: 'white', borderStyle: 'solid', borderColor: 'white', borderRadius: '5px', position: 'relative', right: '2vw', top: '2vh', borderWidth: '3px', fontWeight: '900' }}
+                  style={{ color: 'white', borderStyle: 'solid', borderColor: 'white', borderRadius: '5px', position: 'relative', right: '5vw', top: '3vh', borderWidth: '3px', fontWeight: '900' }}
                 />
               </Link>
             </IfNotAuthenticated>

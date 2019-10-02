@@ -14,6 +14,7 @@ export const ColOne = styled.span`
 
 export const ColTwo = styled.input`
   grid-column: 2;
+  
 `
 
 export const ColThree = styled.input`

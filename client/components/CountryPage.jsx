@@ -77,7 +77,7 @@ class CountryPage extends React.Component {
             fontFamily: 'Montserrat, sans-serif',
             backgroundColor: 'rgba(30, 113, 128, 0.80)',
             width: '90vw',
-            height: '80vh',
+            height: '83vh',
             borderRadius: '15px 15px 0px 0px',
             position: 'relative',
             left: '5vw',
@@ -87,10 +87,15 @@ class CountryPage extends React.Component {
               <h2 style={{
                 position: 'relative',
                 // left: '3vw',
-                top: '2vh',
-                fontWeight: '100'
-              }}>Start adding to your list</h2>
-              <h2 style={{ float: 'right', bottom: '5.5vh', position: 'relative' }}>{this.props.match.params.selectedCountry}</h2>
+                top: '2.5vh',
+                fontWeight: '100',
+                marginBottom: '0'
+              }}>Welcome to {this.props.match.params.selectedCountry}</h2><br></br>
+              <h3 style={{
+                paddingBottom: '.5vh',
+                marginBottom: 0
+              }}>Add to your bucket-list below:</h3>
+              <h2 style={{ float: 'right', bottom: '5.5vh', position: 'relative' }}></h2>
             </div>
             <BucketList />
           </div>
