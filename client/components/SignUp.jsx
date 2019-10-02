@@ -76,11 +76,11 @@ class SignUp extends React.Component {
           <img src={this.state.picture} alt='Missing'
             style={{
               borderRadius: '50%',
-              width: '160px',
-              height: '160px',
+              width: '14vw',
+              height: '14vw',
               position: 'absolute',
-              left: '12vw',
-              top: '5vh',
+              left: '10.5vw',
+              top: '9vh',
               borderStyle: 'solid',
               borderWidth: '2px',
               borderColor: 'orange'
@@ -100,7 +100,7 @@ class SignUp extends React.Component {
               borderBottomColor: 'white',
               position: 'relative',
               left: '1.5vw',
-              top: '28.5vh',
+              top: '40.5vh',
               fontSize: '17px'
             }}
           />
@@ -121,12 +121,12 @@ class SignUp extends React.Component {
               borderBottomColor: 'white',
               position: 'relative',
               left: '1.5vw',
-              top: '20vh',
+              top: '25vh',
               fontSize: '17px'
             }}
           />
 
-          <ColTwo name='picture' type='picture'
+          {/* <ColTwo name='picture' type='picture'
             placeholder='Picture'
             onKeyDown={this.handleEnter}
             style={{
@@ -143,13 +143,13 @@ class SignUp extends React.Component {
               top: '12vh',
               fontSize: '17px'
             }}
-          />
+          /> */}
 
           <Button type='button' style={{
             width: '8vw',
             height: '4vh', 
             position: 'relative',
-            top: '5vh',
+            top: '12vh',
             left: '2vw',
             backgroundColor: 'orange',
             borderRadius: '10px',

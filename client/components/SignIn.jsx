@@ -82,7 +82,7 @@ class SignIn extends Component {
               width: '14vw',
               height: '14vw',
               position: 'absolute',
-              left: '11vw',
+              left: '10.5vw',
               top: '9vh',
               borderStyle: 'solid',
               borderWidth: '2px',
