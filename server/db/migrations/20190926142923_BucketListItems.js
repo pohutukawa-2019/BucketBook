@@ -3,6 +3,7 @@ exports.up = (knex, Promise) => {
     table.increments('id')
       .primary()
     table.string('title')
+    table.boolean('completed')
     table.integer('country_id')
       .references('Countries.id')
       .onDelete('CASCADE')
