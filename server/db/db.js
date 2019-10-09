@@ -25,9 +25,18 @@ function deleteBucketListItemById (id, db = connection) {
     .delete()
 }
 
+function updateCompletedStatus (bucketListItem, db = connection) {
+  return db('BucketListItems')
+    .where('id', bucketListItem.id)
+    .update({
+      completed: bucketListItem.completed
+    })
+}
+
 module.exports = {
   getBucketListItemsByCountry,
   addBucketListItem,
   deleteBucketListItemById,
-  getCountryByName
+  getCountryByName,
+  updateCompletedStatus
 }
