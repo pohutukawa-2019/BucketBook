@@ -16,7 +16,7 @@ function getCountryByName (countryName, db = connection) {
 
 function addBucketListItem (bucketListItemTitle, selectedCountryId, userId, db = connection) {
   return db('BucketListItems')
-    .insert({ title: bucketListItemTitle, country_id: selectedCountryId, user_id: userId })
+    .insert({ title: bucketListItemTitle, completed: 0, country_id: selectedCountryId, user_id: userId })
 }
 
 function deleteBucketListItemById (id, db = connection) {
