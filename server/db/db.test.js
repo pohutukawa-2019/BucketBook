@@ -57,4 +57,23 @@ describe('Database functions for bucketlist items', () => {
         expect(bucketListItem).toBe(1)
       })
   })
+
+  it('updateCompletedStatus updates a bucketlist items Completed field', () => {
+    expect.assertions(1)
+
+    const bucketListItem = {
+      id: 2,
+      title: 'Run',
+      completed: 1
+    }
+
+    return db.updateCompletedStatus(bucketListItem, testDb)
+      .then(() => {
+        return db.getBucketListItemsByCountry('Zambia', testDb)
+          .then(listItems => {
+            const UpdatedItem = listItems[0]
+            expect(UpdatedItem.completed).toBe(1)
+          })
+      })
+  })
 })

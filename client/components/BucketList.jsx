@@ -29,6 +29,7 @@ class BucketList extends Component {
               key={bucketListItem.id}
               id={bucketListItem.id}
               title={bucketListItem.title}
+              completed={bucketListItem.completed}
               countryName={bucketListItem.name}
               removeHandler={this.removeHandler}
             />
