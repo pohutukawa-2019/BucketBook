@@ -50,7 +50,7 @@ router.delete('/:selectedCountry', tokenDecoder, (req, res) => {
 router.put('/:selectedCountry', tokenDecoder, (req, res) => {
   const bucketListItem = req.body
   const userId = Number(req.user.id)
-  const selectedCountry = req.params.selectedCountry 
+  const selectedCountry = req.params.selectedCountry
 
   db.updateCompletedStatus(bucketListItem)
     .then(() => db.getBucketListItemsByCountry(selectedCountry))
@@ -60,6 +60,5 @@ router.put('/:selectedCountry', tokenDecoder, (req, res) => {
     .then(buckeList => res.status(200).json(buckeList))
     .catch(err => res.status(500).send(err.message))
 })
-
 
 module.exports = router
