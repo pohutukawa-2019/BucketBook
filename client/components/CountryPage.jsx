@@ -54,7 +54,7 @@ class CountryPage extends React.Component {
           .then(() => {
             setTimeout(() => {
               this.props.countryPageReady()
-            }, 2500)
+            }, 700)
           })
       })
   }
