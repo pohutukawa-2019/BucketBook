@@ -27,6 +27,7 @@ class AddNewBucketListItem extends Component {
     }
   }
 
+  // THIS FUNCTION ONLY CHECKS FOR '' NOT '   ', etc...
   checkSubmit = () => {
     if (this.state.title === '') {
       return
