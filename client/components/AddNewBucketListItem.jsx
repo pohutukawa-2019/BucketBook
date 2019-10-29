@@ -17,30 +17,50 @@ class AddNewBucketListItem extends Component {
   }
 
   handleClick = () => {
-    this.props.addBucketListItem({
-      title: this.state.title,
-      countryId: this.props.selectedCountry.id,
-      countryName: this.props.selectedCountry.name
-    })
-    this.setState({
-      title: ''
-    })
+    this.checkSubmit()
+  }
+
+  handleEnter = (e) => {
+    if (e.keyCode === 13) {
+      e.preventDefault()
+      this.checkSubmit()
+    }
+  }
+
+  checkSubmit = () => {
+    if (this.state.title === '') {
+      return
+    } else {
+      this.props.addBucketListItem({
+        title: this.state.title,
+        countryId: this.props.selectedCountry.id,
+        countryName: this.props.selectedCountry.name
+      })
+      this.setState({
+        title: ''
+      })
+    }
   }
 
   render () {
     return (
       <div>
-        <GridForm style={{
+        <form style={{
           position: 'relative',
           left: '0vw',
           top: '2vh',
           display: 'inline-block',
-          width: '80vw'
-        }}>
+          width: '80vw',
+          // width: '80%',
+          display: 'grid',
+          gridGap: '10px',
+          gridTemplateColumns: 'auto 1fr',
+          backgroundColor: 'white',
+        }} onKeyDown={this.handleEnter}>
           <div className='input-container'>
             <ColThree className='inputPlaceholderColor' name='title'
               placeholder='Enter it here'
-              value={this.state.title}
+              value={this.state.title} required
               onChange={this.handleChange}/>
             <Button style={{
               position: 'relative',
@@ -58,7 +78,7 @@ class AddNewBucketListItem extends Component {
             }} type='button' onClick={this.handleClick}>Add item</Button>
           </div>
 
-        </GridForm>
+        </form>
 
       </div>
     )
