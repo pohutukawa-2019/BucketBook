@@ -1,4 +1,4 @@
-import { GET_BACKGROUND_PENDING, GET_BACKGROUND_SUCCESS } from '../actions/getCountryBackground'
+import { GET_BACKGROUND_PENDING } from '../actions/getCountryBackground'
 import { COUNTRY_PAGE_READY } from '../actions/countryPageLoaded'
 
 export default function (state = false, action) {
