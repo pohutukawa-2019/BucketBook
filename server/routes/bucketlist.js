@@ -48,7 +48,7 @@ router.delete('/:selectedCountry', tokenDecoder, (req, res) => {
 })
 
 router.put('/:selectedCountry', tokenDecoder, (req, res) => {
-  const bucketListItem = req.body
+  const bucketListItem = req.body.bucketListItem
   const userId = Number(req.user.id)
   const selectedCountry = req.params.selectedCountry
 
