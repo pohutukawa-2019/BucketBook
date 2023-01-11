@@ -37,7 +37,7 @@
     "dotenv": "^8.1.0",
     "dotenv-webpack": "^1.7.0",
     "express": "^4.17.1",
-    "knex": "^0.19.4",
+    "knex": "^2.4.0",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react-motion": "^0.5.2",
